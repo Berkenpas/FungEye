@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE29.png",
+    "tokenId": 29,
+    "name": "ADD_PROJECT_NAME_HERE 29",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Blue"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "bow_tie"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "ol_red"
+        }
+    ]
+}

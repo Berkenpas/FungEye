@@ -20,43 +20,45 @@ import json
 # Each image is made up a series of traits
 # The weightings for each trait drive the rarity and add up to 100%
 
-background = ["Blue", "Orange", "Purple", "Red", "Yellow"] 
-background_weights = [30, 40, 15, 5, 10]
+background = ["Blue", "Red", "Green", "Rb"]
+background_weights = [30, 30, 30, 10]
 
-circle = ["Blue", "Green", "Orange", "Red", "Yellow"] 
-circle_weights = [30, 40, 15, 5, 10]
+accessories = ["bow_tie", "none", "shutter_green"]
+accessories_weights = [20, 50, 30]
 
-square = ["Blue", "Green", "Orange", "Red", "Yellow"] 
-square_weights = [30, 40, 15, 5, 10]
+stems = ["plain_j", "skirt"]
+stems_weights = [60, 40]
+
+tops = ["fly_ag", "lbm", "morel", "ol_red"]
+tops_weights = [20, 40, 20, 20]
 
 # Dictionary variable for each trait. 
 # Eech trait corresponds to its file name
 
 background_files = {
-    "Blue": "blue",
-    "Orange": "orange",
-    "Purple": "purple",
-    "Red": "red",
-    "Yellow": "yellow",
+    "Blue": "Blue",
+    "Red": "Red",
+    "Green": "Green",
+    "Rb": "Rb"
 }
 
-circle_files = {
-    "Blue": "blue-circle",
-    "Green": "green-circle",
-    "Orange": "orange-circle",
-    "Red": "red-circle",
-    "Yellow": "yellow-circle"   
+accessories_files = {
+    "bow_tie": "Bowtie_Blue",
+    "none": "None",
+    "shutter_green": "ShutterShades_Green"
 }
 
-square_files = {
-    "Blue": "blue-square",
-    "Green": "green-square",
-    "Orange": "orange-square",
-    "Red": "red-square",
-    "Yellow": "yellow-square"  
-          
+stem_files = {
+    "plain_j": "Plain_Jane",
+    "skirt": "Skirt"
 }
 
+top_files = {
+    "fly_ag": "Fly_Agaric",
+    "lbm": "LBM",
+    "morel": "Morel",
+    "ol_red": "Ol_Red"
+}
 
 # In[3]:
 
@@ -74,8 +76,9 @@ def create_new_image():
 
     # For each trait category, select a random trait based on the weightings 
     new_image ["Background"] = random.choices(background, background_weights)[0]
-    new_image ["Circle"] = random.choices(circle, circle_weights)[0]
-    new_image ["Square"] = random.choices(square, square_weights)[0]
+    new_image ["Accessories"] = random.choices(accessories, accessories_weights)[0]
+    new_image ["Stems"] = random.choices(stems, stems_weights)[0]
+    new_image ["Tops"] = random.choices(tops, tops_weights)[0]
     
     if new_image in all_images:
         return create_new_image()
@@ -128,29 +131,35 @@ background_count = {}
 for item in background:
     background_count[item] = 0
     
-circle_count = {}
-for item in circle:
-    circle_count[item] = 0
+accessories_count = {}
+for item in accessories:
+    accessories_count[item] = 0
 
-square_count = {}
-for item in square:
-    square_count[item] = 0
+stems_count = {}
+for item in stems:
+    stems_count[item] = 0
+
+tops_count = {}
+for item in tops:
+    tops_count[item] = 0
 
 for image in all_images:
     background_count[image["Background"]] += 1
-    circle_count[image["Circle"]] += 1
-    square_count[image["Square"]] += 1
+    accessories_count[image["Accessories"]] += 1
+    stems_count[image["Stems"]] += 1
+    tops_count[image["Tops"]] += 1
     
 print(background_count)
-print(circle_count)
-print(square_count)
+print(accessories_count)
+print(stems_count)
+print(tops_count)
 
 
 # In[8]:
 
 
 #### Generate Metadata for all Traits 
-METADATA_FILE_NAME = './metadata/all-traits.json'; 
+METADATA_FILE_NAME = './metadata/all-traits.json';
 with open(METADATA_FILE_NAME, 'w') as outfile:
     json.dump(all_images, outfile, indent=4)
 
@@ -163,16 +172,18 @@ with open(METADATA_FILE_NAME, 'w') as outfile:
 #### Generate Images    
 for item in all_images:
 
-  im1 = Image.open(f'./trait-layers/backgrounds/{background_files[item["Background"]]}.jpg').convert('RGBA')
-  im2 = Image.open(f'./trait-layers/circles/{circle_files[item["Circle"]]}.png').convert('RGBA')
-  im3 = Image.open(f'./trait-layers/squares/{square_files[item["Square"]]}.png').convert('RGBA')
+  im1 = Image.open(f'./trait-layers/Back/{background_files[item["Background"]]}.png').convert('RGBA')
+  im2 = Image.open(f'./trait-layers/Accessories/{accessories_files[item["Accessories"]]}.png').convert('RGBA')
+  im3 = Image.open(f'./trait-layers/Stems/{stem_files[item["Stems"]]}.png').convert('RGBA')
+  im4 = Image.open(f'./trait-layers/Tops/{top_files[item["Tops"]]}.png').convert('RGBA')
 
   #Create each composite
-  com1 = Image.alpha_composite(im1, im2)
-  com2 = Image.alpha_composite(com1, im3)
+  com1 = Image.alpha_composite(im1, im3)
+  com2 = Image.alpha_composite(com1, im4)
+  com3 = Image.alpha_composite(com2, im2)
 
   #Convert to RGB
-  rgb_im = com2.convert('RGB')
+  rgb_im = com3.convert('RGB')
   file_name = str(item["tokenId"]) + ".png"
   rgb_im.save("./images/" + file_name)
   
@@ -206,8 +217,9 @@ for i in data:
         "attributes": []
     }
     token["attributes"].append(getAttribute("Background", i["Background"]))
-    token["attributes"].append(getAttribute("Circle", i["Circle"]))
-    token["attributes"].append(getAttribute("Square", i["Square"]))
+    token["attributes"].append(getAttribute("Accessories", i["Accessories"]))
+    token["attributes"].append(getAttribute("Stems", i["Stems"]))
+    token["attributes"].append(getAttribute("Tops", i["Tops"]))
 
     with open('./metadata/' + str(token_id), 'w') as outfile:
         json.dump(token, outfile, indent=4)

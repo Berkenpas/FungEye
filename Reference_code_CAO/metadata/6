@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE6.png",
+    "tokenId": 6,
+    "name": "ADD_PROJECT_NAME_HERE 6",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "none"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "morel"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE10.png",
+    "tokenId": 10,
+    "name": "ADD_PROJECT_NAME_HERE 10",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Blue"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "none"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "plain_j"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "lbm"
+        }
+    ]
+}

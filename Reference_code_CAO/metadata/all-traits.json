@@ -1,0 +1,212 @@
+[
+    {
+        "Background": "Red",
+        "Accessories": "none",
+        "Stems": "plain_j",
+        "Tops": "fly_ag",
+        "tokenId": 0
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "none",
+        "Stems": "skirt",
+        "Tops": "lbm",
+        "tokenId": 1
+    },
+    {
+        "Background": "Green",
+        "Accessories": "bow_tie",
+        "Stems": "plain_j",
+        "Tops": "ol_red",
+        "tokenId": 2
+    },
+    {
+        "Background": "Green",
+        "Accessories": "none",
+        "Stems": "skirt",
+        "Tops": "lbm",
+        "tokenId": 3
+    },
+    {
+        "Background": "Red",
+        "Accessories": "none",
+        "Stems": "skirt",
+        "Tops": "morel",
+        "tokenId": 4
+    },
+    {
+        "Background": "Green",
+        "Accessories": "shutter_green",
+        "Stems": "plain_j",
+        "Tops": "lbm",
+        "tokenId": 5
+    },
+    {
+        "Background": "Green",
+        "Accessories": "none",
+        "Stems": "skirt",
+        "Tops": "morel",
+        "tokenId": 6
+    },
+    {
+        "Background": "Red",
+        "Accessories": "none",
+        "Stems": "plain_j",
+        "Tops": "ol_red",
+        "tokenId": 7
+    },
+    {
+        "Background": "Green",
+        "Accessories": "none",
+        "Stems": "plain_j",
+        "Tops": "lbm",
+        "tokenId": 8
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "shutter_green",
+        "Stems": "skirt",
+        "Tops": "ol_red",
+        "tokenId": 9
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "none",
+        "Stems": "plain_j",
+        "Tops": "lbm",
+        "tokenId": 10
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "shutter_green",
+        "Stems": "plain_j",
+        "Tops": "lbm",
+        "tokenId": 11
+    },
+    {
+        "Background": "Green",
+        "Accessories": "shutter_green",
+        "Stems": "skirt",
+        "Tops": "lbm",
+        "tokenId": 12
+    },
+    {
+        "Background": "Red",
+        "Accessories": "bow_tie",
+        "Stems": "plain_j",
+        "Tops": "morel",
+        "tokenId": 13
+    },
+    {
+        "Background": "Green",
+        "Accessories": "shutter_green",
+        "Stems": "plain_j",
+        "Tops": "ol_red",
+        "tokenId": 14
+    },
+    {
+        "Background": "Red",
+        "Accessories": "shutter_green",
+        "Stems": "plain_j",
+        "Tops": "lbm",
+        "tokenId": 15
+    },
+    {
+        "Background": "Rb",
+        "Accessories": "shutter_green",
+        "Stems": "skirt",
+        "Tops": "morel",
+        "tokenId": 16
+    },
+    {
+        "Background": "Rb",
+        "Accessories": "bow_tie",
+        "Stems": "plain_j",
+        "Tops": "lbm",
+        "tokenId": 17
+    },
+    {
+        "Background": "Red",
+        "Accessories": "none",
+        "Stems": "plain_j",
+        "Tops": "lbm",
+        "tokenId": 18
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "none",
+        "Stems": "skirt",
+        "Tops": "ol_red",
+        "tokenId": 19
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "none",
+        "Stems": "plain_j",
+        "Tops": "ol_red",
+        "tokenId": 20
+    },
+    {
+        "Background": "Green",
+        "Accessories": "none",
+        "Stems": "plain_j",
+        "Tops": "ol_red",
+        "tokenId": 21
+    },
+    {
+        "Background": "Red",
+        "Accessories": "shutter_green",
+        "Stems": "plain_j",
+        "Tops": "ol_red",
+        "tokenId": 22
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "shutter_green",
+        "Stems": "skirt",
+        "Tops": "lbm",
+        "tokenId": 23
+    },
+    {
+        "Background": "Rb",
+        "Accessories": "bow_tie",
+        "Stems": "skirt",
+        "Tops": "morel",
+        "tokenId": 24
+    },
+    {
+        "Background": "Red",
+        "Accessories": "shutter_green",
+        "Stems": "skirt",
+        "Tops": "ol_red",
+        "tokenId": 25
+    },
+    {
+        "Background": "Rb",
+        "Accessories": "bow_tie",
+        "Stems": "plain_j",
+        "Tops": "ol_red",
+        "tokenId": 26
+    },
+    {
+        "Background": "Green",
+        "Accessories": "shutter_green",
+        "Stems": "skirt",
+        "Tops": "fly_ag",
+        "tokenId": 27
+    },
+    {
+        "Background": "Red",
+        "Accessories": "none",
+        "Stems": "skirt",
+        "Tops": "lbm",
+        "tokenId": 28
+    },
+    {
+        "Background": "Blue",
+        "Accessories": "bow_tie",
+        "Stems": "skirt",
+        "Tops": "ol_red",
+        "tokenId": 29
+    }
+]
