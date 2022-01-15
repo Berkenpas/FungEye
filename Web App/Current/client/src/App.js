@@ -31,8 +31,8 @@ const Routing = () =>{
         <Route path = '/' element = {<Home/>}/>
         <Route path = '/login' element = {<Login/>}/>
         <Route path = '/signup' element = {<Signup/>}/>
-        <Route path = '/profile' element = {<Profile/>}/>
-        <Route path = '/create' element = {<CreatePost/>}/>
+        <Route path = '/myuploads' element = {<Profile/>}/>
+        <Route path = '/uploadimage' element = {<CreatePost/>}/>
     </Routes>
      
   )
