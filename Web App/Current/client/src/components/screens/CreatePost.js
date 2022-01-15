@@ -4,8 +4,6 @@ import M from 'materialize-css';
 
 
 const CreatePost = ()=>{
-    const [title, setTitle] = useState("")
-    const [body, setBody] = useState("")
     const [image, setImage] = useState("")
     const [url, setUrl] = useState("")
     const navigate = useNavigate()
@@ -19,8 +17,6 @@ const CreatePost = ()=>{
                     "Authorization": "Bearer " + localStorage.getItem("jwt")
                 },
                 body: JSON.stringify({
-                    title,
-                    body,
                     pic: url
                 })
             }).then(res=>res.json())
@@ -29,7 +25,7 @@ const CreatePost = ()=>{
                     M.toast({html: data.error, classes:"#c62828 red darken-3"})
                 }
                 else{
-                    M.toast({html: "Created Post", classes: "#4caf50 green"})
+                    M.toast({html: "Image Uploaded", classes: "#4caf50 green"})
                     navigate('/');
                 }
             }).catch(err=>{
@@ -66,10 +62,20 @@ const CreatePost = ()=>{
             textAlign: 'center'
         }}>
             
-            <input type = "text" placeholder = "title" value = {title} onChange = {(e)=>setTitle(e.target.value)}/>
-            <input type = "text" placeholder = "body" value = {body} onChange = {(e)=>setBody(e.target.value)}/>
             <div className="file-field input-field">
+                <h2>Upload An Image</h2>
+                <body>
+                    RULES OF SUBMISSION
+
+                    <p></p>
+
+                    Please upload an image that contains only one species of mushroom. If it contains more than one, 
+                    the image will not be added to our database. Thank you!
+
+                    <p></p>
+                </body>
                 <div className="btn waves-effect waves-light #a1887f brown lighten-2">
+                    
                     <span>Upload</span>
                     <input type = "file" onChange = {(e)=>setImage(e.target.files[0])}/>
                     
