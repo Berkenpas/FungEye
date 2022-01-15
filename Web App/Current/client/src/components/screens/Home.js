@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import mush from './mushroom.jpg';
+import "../../App.css";
+import VoteForm from "../voteForm";
+import { IconButton} from '@mui/material';
+import BallotOutlinedIcon from '@mui/icons-material/BallotOutlined';
 
 const Home = ()=>{
     const [data, setData] = useState([])
@@ -22,18 +25,17 @@ const Home = ()=>{
                     
                     return(
                         <div className = 'card home-card' key = {item._id}>
-                            <h5>{item.postedBy.name}</h5>
+                            
                         <div className = 'card-image'>
                             <img src = {item.image}/>
                         </div>
                         <div className = 'card-content'>
-                            <i className="material-icons">equalizer</i>
-                                <h6>
-                                    {item.title}
-                                </h6>
-                            <p> {item.body}</p>
-                            <input type='text' placeholder = 'add a comment'/>
-                        </div>
+                            <IconButton aria-label="vote">
+                                <BallotOutlinedIcon />
+                            </IconButton>
+
+                            <VoteForm/>
+                            </div>
                     </div>  
                     )
                 })
