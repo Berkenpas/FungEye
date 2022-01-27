@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+
+
+a{
+    color: rgb(112, 87, 87);
+}
+
+.brand-logo, h2, h4{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.page-head{
+    font-family: 'Quicksand', sans-serif;
+}
+
+.myCard{
+    margin-top: 10px;
+}
+
+.auth-card{
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+.gallery{
+    display: 'flex';
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item{
+    width: 30%;
+
+}
+
+.home-card{
+    max-width: 500px;
+    height: max-content;
+    margin: 26px auto;
+}
+
+#toast-container{
+    top:30px;
+    right: 20px;
+    left: auto !important;
+}
+
+.mush-icon{
+    font-size: 27px;
+   line-height: 1em;
+}
+
+.mush-button-icon{
+    padding: 0;
+    border: none;
+    background: none;
+}
