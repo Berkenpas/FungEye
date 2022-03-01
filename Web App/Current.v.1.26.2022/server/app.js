@@ -19,7 +19,10 @@ mongoose.connection.on('error', (err)=>{
 
 require ('./models/user');
 require('./models/mush_species');
+require('./models/predictions');
 require('./models/post');
+require('./models/votes');
+
 mongoose.model("User");
 
 app.use(express.json());
