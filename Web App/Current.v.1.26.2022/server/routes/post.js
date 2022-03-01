@@ -3,19 +3,48 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const requireLogin = require('../middleware/requireLogin')
 const Post = mongoose.model("Post");
+const Votes = mongoose.model("Votes");
+const User = mongoose.model("User");
+const Mushrooms = mongoose.model("Mushrooms");
 
 //this router is for the voting system that finds pictures that have not been identified
 router.get('/allpost', requireLogin,(req, res)=>{
     Post.find({$or: [{mushID:{$exists:false}}, {mushID:"61e3576650a1d7fbc5f2ac7d"}]})
-        .populate('postedBy', '_id name')
         .populate('mushID')
     
         .then(posts=>{
             res.json(posts)
         })
+        
         .catch(err=>{
                 console.log(err)
         })
+})
+
+//router for finding all mushrooms within database
+router.get('/allmush', requireLogin, (req, res)=>{
+    Mushrooms.find({ _id: { $ne: "61e3576650a1d7fbc5f2ac7d" } }) //finds all mushroom species
+        .populate('latin')
+        .then(musher=>{
+            res.json(musher)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+})
+
+//stores votes
+router.post('/storevote',  requireLogin, (req, res)=>{
+    console.log(JSON.stringify(req.body));
+
+    const newVote = new Votes({
+        user: req.user,
+        image_id: req.body.image,
+        vote: req.body.vote
+        
+    })
+    newVote.save();
+    
 })
 
 
@@ -29,9 +58,9 @@ router.post('/createpost', requireLogin, (req, res)=>{
     req.user.password = undefined;
 
     const post = new Post({
-        image: pic, 
+        image: pic, //this is the picture's url
         postedBy: req.user,
-        mushID: "61e3576650a1d7fbc5f2ac7d" //automatically make unknown
+        mushID: "61e3576650a1d7fbc5f2ac7d" //automatically make unknown unless ai gets it, will be nothing, then added after ai 
     })
     post.save().then(result =>{
         res.json({post: result})
