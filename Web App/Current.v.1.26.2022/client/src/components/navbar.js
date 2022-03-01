@@ -10,7 +10,7 @@ const NavBar = ()=>{
             return [
             <li><Link to="/myuploads">My Uploads</Link></li>,
             <li><Link to="/uploadimage">Upload Photo</Link></li>,
-            <li><Link to="/myuploads">About Us</Link></li>,
+            <li><Link to="/aboutus">About Us</Link></li>,
             <li>
                 <button className="btn waves-effect waves-light #a1887f brown lighten-2" 
                 onClick = {()=>{
