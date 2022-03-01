@@ -5,7 +5,7 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "Blue"
         },
         {
             "trait_type": "Accessories",
@@ -13,11 +13,11 @@
         },
         {
             "trait_type": "Stems",
-            "value": "skirt"
+            "value": "plain_j"
         },
         {
             "trait_type": "Tops",
-            "value": "morel"
+            "value": "lbm"
         }
     ]
 }

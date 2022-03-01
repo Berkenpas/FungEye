@@ -9,15 +9,15 @@
         },
         {
             "trait_type": "Accessories",
-            "value": "none"
+            "value": "bow_tie"
         },
         {
             "trait_type": "Stems",
-            "value": "skirt"
+            "value": "plain_j"
         },
         {
             "trait_type": "Tops",
-            "value": "morel"
+            "value": "ol_red"
         }
     ]
 }

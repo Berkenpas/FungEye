@@ -7,11 +7,13 @@
 
 # In[1]:
 
-
+#pip install pillow
 from PIL import Image 
 from IPython.display import display 
 import random
 import json
+import subprocess
+import os
 
 
 # In[2]:
@@ -170,6 +172,20 @@ with open(METADATA_FILE_NAME, 'w') as outfile:
 
   
 #### Generate Images    
+if not os.path.isdir("./imagesSmall"):
+    os.makedirs("./imagesSmall")
+    print("created folder : ", "./imagesSmall")
+
+else:
+    print("./imagesSmall", "folder already exists.")
+
+if not os.path.isdir("./results"):
+    os.makedirs("./results")
+    print("created folder : ", "./results")
+
+else:
+    print("./results", "folder already exists.")
+
 for item in all_images:
 
   im1 = Image.open(f'./trait-layers/Back/{background_files[item["Background"]]}.png').convert('RGBA')
@@ -185,7 +201,10 @@ for item in all_images:
   #Convert to RGB
   rgb_im = com3.convert('RGB')
   file_name = str(item["tokenId"]) + ".png"
-  rgb_im.save("./images/" + file_name)
+
+  rgb_im.save("./imagesSmall/" + file_name)
+
+  subprocess.run(["magick", os.path.join("./imagesSmall",file_name), "-filter", "point", "-resize", "3000%", os.path.join("./results",file_name)])
   
   
   

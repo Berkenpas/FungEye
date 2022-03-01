@@ -5,11 +5,11 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Red"
+            "value": "Green"
         },
         {
             "trait_type": "Accessories",
-            "value": "none"
+            "value": "shutter_green"
         },
         {
             "trait_type": "Stems",
@@ -17,7 +17,7 @@
         },
         {
             "trait_type": "Tops",
-            "value": "fly_ag"
+            "value": "lbm"
         }
     ]
 }

@@ -9,15 +9,15 @@
         },
         {
             "trait_type": "Accessories",
-            "value": "none"
+            "value": "shutter_green"
         },
         {
             "trait_type": "Stems",
-            "value": "skirt"
+            "value": "plain_j"
         },
         {
             "trait_type": "Tops",
-            "value": "lbm"
+            "value": "ol_red"
         }
     ]
 }

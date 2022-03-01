@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "Rb"
         },
         {
             "trait_type": "Accessories",
-            "value": "bow_tie"
+            "value": "none"
         },
         {
             "trait_type": "Stems",
-            "value": "skirt"
+            "value": "plain_j"
         },
         {
             "trait_type": "Tops",
-            "value": "ol_red"
+            "value": "lbm"
         }
     ]
 }

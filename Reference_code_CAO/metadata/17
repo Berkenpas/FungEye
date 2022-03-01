@@ -5,11 +5,11 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "Green"
         },
         {
             "trait_type": "Accessories",
-            "value": "bow_tie"
+            "value": "none"
         },
         {
             "trait_type": "Stems",
@@ -17,7 +17,7 @@
         },
         {
             "trait_type": "Tops",
-            "value": "lbm"
+            "value": "ol_red"
         }
     ]
 }
