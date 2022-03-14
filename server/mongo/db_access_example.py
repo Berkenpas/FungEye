@@ -21,8 +21,10 @@ print(mushrooms_df)
 
 # A post and mushroom id
 post_id = posts[0]['_id']
-predicted_mushroom_id = mushrooms[0]["_id"]
-confidence = 66.43
+predicted_mushroom_id = "61e352bb989c99f3181b013c"
+confidence = 66.49
 
 # Insert post id, mushroom predction id, and confidence score to 'predictions' collection
 db.add_prediction(post_id, predicted_mushroom_id, confidence)
+#db.remove_prediction("622d4accdf1ee5b54affb2ff")
+print(DataFrame(db.find_prediction(pic_id="622d4accdf1ee5b54affb2ff")))
