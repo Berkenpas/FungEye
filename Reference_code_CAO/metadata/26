@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Red"
+            "value": "Blue"
         },
         {
             "trait_type": "Accessories",
-            "value": "shutter_green"
+            "value": "sunglasses"
         },
         {
             "trait_type": "Stems",
-            "value": "plain_j"
+            "value": "roots"
         },
         {
             "trait_type": "Tops",
-            "value": "ol_red"
+            "value": "Morel"
         }
     ]
 }

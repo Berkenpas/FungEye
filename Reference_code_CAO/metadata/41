@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE41.png",
+    "tokenId": 41,
+    "name": "ADD_PROJECT_NAME_HERE 41",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Rb"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "None"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Plain_Jane"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "minty"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE58.png",
+    "tokenId": 58,
+    "name": "ADD_PROJECT_NAME_HERE 58",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Rb"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Pinky"
+        }
+    ]
+}

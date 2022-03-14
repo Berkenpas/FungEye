@@ -19,55 +19,45 @@ import os
 # In[2]:
 
 
+#   im1 = Image.open(f'./trait-layers/Back/{background_files[item["Background"]]}.png').convert('RGBA')
+#   im2 = Image.open(f'./trait-layers/Accessories/{accessories_files[item["Accessories"]]}.png').convert('RGBA')
+#   im3 = Image.open(f'./trait-layers/Stems/{stem_files[item["Stems"]]}.png').convert('RGBA')
+#   im4 = Image.open(f'./trait-layers/Tops/{top_files[item["Tops"]]}.png').convert('RGBA')
+
+
 # Each image is made up a series of traits
 # The weightings for each trait drive the rarity and add up to 100%
 
-background = ["Blue", "Red", "Green", "Rb"]
-background_weights = [30, 30, 30, 10]
+backgroundNames = os.listdir('./trait-layers/Back/')
+background = [name[:-4] for name in backgroundNames]
+weight = 100/len(background)
+background_weights = [weight for name in background]
 
-accessories = ["bow_tie", "none", "shutter_green"]
-accessories_weights = [20, 50, 30]
+accessoriesNames = os.listdir('./trait-layers/Accessories/')
+accessories = [name[:-4] for name in accessoriesNames]
+weight = 100/len(background)
+accessories_weights = [weight for name in accessories]
 
-stems = ["plain_j", "skirt"]
-stems_weights = [60, 40]
+stemNames = os.listdir('./trait-layers/Stems/')
+stems = [name[:-4] for name in stemNames]
+weight = 100/len(background)
+stems_weights = [weight for name in stems]
 
-tops = ["fly_ag", "lbm", "morel", "ol_red"]
-tops_weights = [20, 40, 20, 20]
+topNames = os.listdir('./trait-layers/Tops/')
+tops = [name[:-4] for name in topNames]
+weight = 100/len(background)
+tops_weights = [weight for name in tops]
 
 # Dictionary variable for each trait. 
 # Eech trait corresponds to its file name
 
-background_files = {
-    "Blue": "Blue",
-    "Red": "Red",
-    "Green": "Green",
-    "Rb": "Rb"
-}
-
-accessories_files = {
-    "bow_tie": "Bowtie_Blue",
-    "none": "None",
-    "shutter_green": "ShutterShades_Green"
-}
-
-stem_files = {
-    "plain_j": "Plain_Jane",
-    "skirt": "Skirt"
-}
-
-top_files = {
-    "fly_ag": "Fly_Agaric",
-    "lbm": "LBM",
-    "morel": "Morel",
-    "ol_red": "Ol_Red"
-}
 
 # In[3]:
 
 
 ## Generate Traits
 
-TOTAL_IMAGES = 30 # Number of random unique images we want to generate
+TOTAL_IMAGES = 100 # Number of random unique images we want to generate
 
 all_images = [] 
 
@@ -188,10 +178,10 @@ else:
 
 for item in all_images:
 
-  im1 = Image.open(f'./trait-layers/Back/{background_files[item["Background"]]}.png').convert('RGBA')
-  im2 = Image.open(f'./trait-layers/Accessories/{accessories_files[item["Accessories"]]}.png').convert('RGBA')
-  im3 = Image.open(f'./trait-layers/Stems/{stem_files[item["Stems"]]}.png').convert('RGBA')
-  im4 = Image.open(f'./trait-layers/Tops/{top_files[item["Tops"]]}.png').convert('RGBA')
+  im1 = Image.open(f'./trait-layers/Back/{item["Background"]}.png').convert('RGBA')
+  im2 = Image.open(f'./trait-layers/Accessories/{item["Accessories"]}.png').convert('RGBA')
+  im3 = Image.open(f'./trait-layers/Stems/{item["Stems"]}.png').convert('RGBA')
+  im4 = Image.open(f'./trait-layers/Tops/{item["Tops"]}.png').convert('RGBA')
 
   #Create each composite
   com1 = Image.alpha_composite(im1, im3)

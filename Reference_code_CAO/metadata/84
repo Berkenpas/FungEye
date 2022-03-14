@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE84.png",
+    "tokenId": 84,
+    "name": "ADD_PROJECT_NAME_HERE 84",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Red"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "roots"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Purple"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE44.png",
+    "tokenId": 44,
+    "name": "ADD_PROJECT_NAME_HERE 44",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Blue"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "roots"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "Red"
         },
         {
             "trait_type": "Accessories",
-            "value": "none"
+            "value": "sunglasses"
         },
         {
             "trait_type": "Stems",
-            "value": "skirt"
+            "value": "Skirt"
         },
         {
             "trait_type": "Tops",
-            "value": "lbm"
+            "value": "Ol_Purple"
         }
     ]
 }

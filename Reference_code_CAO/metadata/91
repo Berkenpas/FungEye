@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE91.png",
+    "tokenId": 91,
+    "name": "ADD_PROJECT_NAME_HERE 91",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Rb"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Plain_Jane"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

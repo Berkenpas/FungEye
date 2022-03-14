@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "Blue"
         },
         {
             "trait_type": "Accessories",
-            "value": "shutter_green"
+            "value": "ShutterShades_Green"
         },
         {
             "trait_type": "Stems",
-            "value": "skirt"
+            "value": "Skirt"
         },
         {
             "trait_type": "Tops",
-            "value": "lbm"
+            "value": "Ol_Pinky"
         }
     ]
 }

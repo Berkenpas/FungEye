@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE59.png",
+    "tokenId": 59,
+    "name": "ADD_PROJECT_NAME_HERE 59",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "roots"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Fly_Agaric"
+        }
+    ]
+}

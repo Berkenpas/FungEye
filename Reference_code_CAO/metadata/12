@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "Red"
         },
         {
             "trait_type": "Accessories",
-            "value": "shutter_green"
+            "value": "ShutterShades_Green"
         },
         {
             "trait_type": "Stems",
-            "value": "plain_j"
+            "value": "Skirt"
         },
         {
             "trait_type": "Tops",
-            "value": "lbm"
+            "value": "LBM"
         }
     ]
 }

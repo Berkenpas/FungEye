@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE45.png",
+    "tokenId": 45,
+    "name": "ADD_PROJECT_NAME_HERE 45",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Red"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "roots"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "subterrain"
+        }
+    ]
+}

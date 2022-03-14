@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "Red"
         },
         {
             "trait_type": "Accessories",
-            "value": "bow_tie"
+            "value": "None"
         },
         {
             "trait_type": "Stems",
-            "value": "plain_j"
+            "value": "roots"
         },
         {
             "trait_type": "Tops",
-            "value": "ol_red"
+            "value": "subterrain"
         }
     ]
 }
