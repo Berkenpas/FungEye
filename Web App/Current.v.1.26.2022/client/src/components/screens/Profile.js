@@ -39,6 +39,8 @@ const Profile = ()=>{
     
     const [mypics, setPics] = useState([])
     const {state, dispatch} = useContext(UserContext)
+    const [userscore, setScore] = useState("")
+  
 
     useEffect(()=>{
         fetch('/mypost',{
@@ -51,6 +53,18 @@ const Profile = ()=>{
             setPics(result)
         })
     }, [])
+
+    useEffect(()=>{
+      fetch('/userscore',{
+          headers:{
+              "Authorization": "Bearer " + localStorage.getItem("jwt")
+
+          }
+      }).then(res=>res.json())
+      .then(result=>{
+          setScore(result)
+      })
+  }, [])
 
     const classes = useStyles();
 
@@ -66,10 +80,13 @@ const Profile = ()=>{
               align="center"
             >
                 <p></p>
-              Welcome, {state?state.name: "loading"}! Here are your uploads.
+              Welcome, {state?state.name: "loading"}! 
             </Typography>
             <Typography gutterBottom variant = "h5" component = "div" align = "center">
                 {mypics.length} Uploads
+            </Typography>
+            <Typography gutterBottom variant = "h5" component = "div" align = "center">
+                Score: {userscore}
             </Typography>
             </div>
             </ThemeProvider>
@@ -82,7 +99,8 @@ const Profile = ()=>{
                        className={classes.media}
                       image={elem.image}
                     />
-                    <CardContent>
+                    {elem.voted  
+                    ? <CardContent>
                         <Typography gutterBottom variant = "h5" component = "div">
                             {elem.mushID.common}
                         </Typography>
@@ -93,6 +111,11 @@ const Profile = ()=>{
                             Information about the mushroom: <a href= {elem.mushID.wiki}>Wikipedia</a>
                         </Typography>
                     </CardContent>
+                    : <CardContent>
+                    <Typography gutterBottom variant = "h5" component = "div">
+                        Currently being voted.
+                    </Typography>
+                </CardContent>}
                   </Card>
                 </Grid>
               ))}
