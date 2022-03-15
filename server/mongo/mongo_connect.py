@@ -25,7 +25,6 @@ class MongoConnector():
     def add(self, collection_name:str, insertion_dictionary:dict):
         '''
         Adds a given collection element to specified collection
-
         '''
         self._db[collection_name].insert_one(insertion_dictionary)
 
@@ -43,11 +42,11 @@ class FungEyeConnector(MongoConnector):
         '''
         # Check for pre-existing prediction
         if len(list(self.find_prediction(pic_id = pic_id))) < 1:
-            self._db['predictions'].insert_one( { "picture" : pic_id , "mush_type" : m_type, "confidence" : confidence } )
+            self._db['predictions'].insert_one( { "picture" : ObjectId(pic_id) , "mush_type" : ObjectId(m_type), "confidence" : confidence } )
             print("New prediction added")
         else:
             print("Prediction exists, overwriting")
-            self._db['predictions'].update_one( { "picture" : ObjectId(pic_id) } , { "$set" : { "confidence" : confidence, "mush_type" : m_type } } )
+            self._db['predictions'].update_one( { "picture" : ObjectId(pic_id) } , { "$set" : { "mush_type" : ObjectId(m_type), "confidence" : confidence } } )
 
     def remove_prediction(self, pic_id:str="", pred_id:str=""):
         '''
@@ -69,3 +68,9 @@ class FungEyeConnector(MongoConnector):
         elif pic_id != "":
             return [e for e in self._db['predictions'].find( { "picture" : ObjectId(pic_id) } )]
         return []
+    
+    def get_new_posts(self):
+        '''
+        Grab all posts that have "voted" attribute as false
+        '''
+        return [p for p in self._db['posts'].find( { "voted" : False } )]
