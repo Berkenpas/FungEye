@@ -39,7 +39,8 @@ const Home = ()=>{
     const [data, setData] = useState([])
     const [mushroomop, setOptions] = useState([])
     const [choice, setChoice] = useState("");
-    const [submit, setSubmit] = useState("")
+    const [submit, setSubmit] = useState("");
+    const [votes, setVotes] = useState([]);
 
 
     useEffect(()=>{
@@ -63,6 +64,8 @@ const Home = ()=>{
             setOptions(result)
         })
     }, [])
+
+
 
     
 const navigate = useNavigate()
@@ -94,6 +97,7 @@ const navigate = useNavigate()
             }).catch(err=>{
                 console.log(err)
             })
+
         }
     }, [choice, submit])
 
@@ -123,10 +127,10 @@ const navigate = useNavigate()
             </div>
             </ThemeProvider>
                 <p></p>
+               
                 <Grid container spacing = {3}>
                     {
                         data.map(item =>(
-                            
                             <Grid item xs={12} sm ={4}>
                                 <Card className={classes.card}>
                                     <CardMedia
