@@ -6,10 +6,11 @@ const Post = mongoose.model("Post");
 const Votes = mongoose.model("Votes");
 const User = mongoose.model("User");
 const Mushrooms = mongoose.model("Mushrooms");
+const Predictions = mongoose.model("Predictions");
 
 //this router is for the voting system that finds pictures that have not been identified
 router.get('/allpost', requireLogin,(req, res)=>{
-    Post.find({$or: [{mushID:{$exists:false}}, {mushID:"61e3576650a1d7fbc5f2ac7d"}]})
+    Post.find({voted: false})
         .populate('mushID')
     
         .then(posts=>{
@@ -21,7 +22,7 @@ router.get('/allpost', requireLogin,(req, res)=>{
         })
 })
 
-//router for finding all mushrooms within database
+//router for finding all mushrooms within database for voting (+ prediction?)
 router.get('/allmush', requireLogin, (req, res)=>{
     Mushrooms.find({ _id: { $ne: "61e3576650a1d7fbc5f2ac7d" } }) //finds all mushroom species
         .populate('latin')
@@ -34,9 +35,9 @@ router.get('/allmush', requireLogin, (req, res)=>{
 })
 
 //stores votes
-router.post('/storevote',  requireLogin, (req, res)=>{
-    console.log(JSON.stringify(req.body));
-
+router.post('/storevote',  requireLogin, async(req, res)=>{
+    //console.log(JSON.stringify(req.body));
+    console.log("Request body: " + JSON.stringify(req.body))
     const newVote = new Votes({
         user: req.user,
         image_id: req.body.image,
@@ -44,13 +45,31 @@ router.post('/storevote',  requireLogin, (req, res)=>{
         
     })
     newVote.save();
+
+    //check if vote is majority
+    //get all instances of votes for image
+    //get all instances of votesz for image and choice and calculate 
+    
+
+    //set mushID to image based on majority
+
+    //update user's score
+
+    await Predictions.find({picture: req.body.image}, {mush_type: 1}) //finds mush_type where imageID is from vote
+        .then(pred=>{
+            console.log(JSON.stringify(pred))
+            //check if vote is prediction
+            if(req.body.vote == pred[0].mush_type){
+                console.log("TRUE")
+
+            }
+        })
     
 })
 
 
-router.post('/createpost', requireLogin, (req, res)=>{
+router.post('/createpost', requireLogin, async (req, res)=>{
     const {pic} = req.body
-    //console.log("title" + title, "body" + body, "url" + pic)
     if(!pic){
         return res.status(422).json({error: "Please upload an image."})
     }
@@ -60,19 +79,32 @@ router.post('/createpost', requireLogin, (req, res)=>{
     const post = new Post({
         image: pic, //this is the picture's url
         postedBy: req.user,
-        mushID: "61e3576650a1d7fbc5f2ac7d" //automatically make unknown unless ai gets it, will be nothing, then added after ai 
+        date: new Date()
     })
-    post.save().then(result =>{
+
+    //get user's current score and add 2 points
+    const userscore = req.user.score + 2;
+
+    await User.updateOne(
+        {_id: req.user._id},
+        {$set:{
+            score: userscore
+        }}
+    )
+    
+    
+    await post.save().then(result =>{
         res.json({post: result})
     })
     .catch(err=>{
         console.log(err)
     })
+
+    
 })
 
-
+//returns all user's posts
 router.get('/mypost', requireLogin, (req, res)=>{
-
     Post.find({postedBy: req.user._id})
         .populate('postedBy', '_id name')
         .populate('mushID')
@@ -80,22 +112,31 @@ router.get('/mypost', requireLogin, (req, res)=>{
             res.json(mypost)
         })
         .catch(err=>{
-
-            const {mush} = req.mushrooms
-
-            if(!mush){
-                //set objectID to unknown
-                Post.updateOne(
-                    {_id: req.body._id},
-                    {$set:{
-                        mushID: "61e3576650a1d7fbc5f2ac7d"
-                    }}
-                )
-            }
-            else{
                 console.log(err)
-            }
+            
 
+        })
+})
+
+//returns the specific user's votes with specific image
+router.get('/uservotes', requireLogin, (req, res)=>{
+    Votes.find({user: req.user._id, image_id: req.image})
+        .then(myvote=>{
+            res.json(myvote)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+})
+
+//returns the specific user's score
+router.get('/userscore', requireLogin, (req, res)=>{
+    User.find({_id: req.user._id}, {score: 1})
+        .then(myscore=>{
+            res.json(myscore[0].score)
+        })
+        .catch(err=>{
+            console.log(err)
         })
 })
 
