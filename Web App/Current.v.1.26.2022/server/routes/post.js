@@ -22,6 +22,19 @@ router.get('/allpost', requireLogin,(req, res)=>{
         })
 })
 
+router.get('/allPostComplete', requireLogin,(req, res)=>{
+    Post.find({voted: true})
+        .populate('mushID')
+    
+        .then(posts=>{
+            res.json(posts)
+        })
+        
+        .catch(err=>{
+                console.log(err)
+        })
+})
+
 //router for finding all mushrooms within database for voting (+ prediction?)
 router.get('/allmush', requireLogin, (req, res)=>{
     Mushrooms.find({ _id: { $ne: "61e3576650a1d7fbc5f2ac7d" } }) //finds all mushroom species
@@ -42,6 +55,7 @@ router.post('/storevote',  requireLogin, async(req, res)=>{
         user: req.user,
         image_id: req.body.image,
         vote: req.body.vote
+
         
     })
     newVote.save();

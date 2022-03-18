@@ -36,21 +36,32 @@ const useStyles = makeStyles({
 
 
 const VoteResults = ()=>{
-    
-    const [mypics, setPics] = useState([])
+    const [data, setData] = useState([])
+    const [mushroomop, setOptions] = useState([])
     const {state, dispatch} = useContext(UserContext)
 
     useEffect(()=>{
-        fetch('/mypost',{
-            headers:{
+        fetch('/allPostComplete',{
+            headers: {
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
-
             }
         }).then(res=>res.json())
         .then(result=>{
-            setPics(result)
+            setData(result)
         })
     }, [])
+
+
+    useEffect(()=>{
+      fetch('/allmush',{
+          headers: {
+              "Authorization": "Bearer " + localStorage.getItem("jwt")
+          }
+      }).then(res=>res.json())
+      .then(result=>{
+          setOptions(result)
+      })
+  }, [])
 
     const classes = useStyles();
 
@@ -70,16 +81,45 @@ const VoteResults = ()=>{
             </Typography>
             </div>
             </ThemeProvider>
-
-            <p></p>
-          </Container>
-          <p></p>
+                <p></p>
+               
+                <Grid container spacing = {3}>
+                    {
+                        data.map(item =>(
+                            <Grid item xs={12} sm ={4}>
+                                <Card className={classes.card}>
+                                    <CardMedia
+                                    className={classes.media}
+                                        image={item.image} name = "image" value = {item._id}
+                                    />
+                                    <CardContent>
+                                        <div>  
+                                        {
+                                          mushroomop.map((option)=>(
+                                            <p>
+                                              
+                                            </p>))
+                                        }
+                              
+                                                <p></p>
+                                            
+                                        </div>
+                                            
+                                                   
+                                    </CardContent>
+                                    
+                                </Card>
+                            </Grid>
+                        ))
+                    }
+                </Grid>
+            </Container>
+            
         </div>
-      );
 
-
-    
+    );
 }
+
 
 
 
