@@ -8,21 +8,19 @@ const postSchema = new mongoose.Schema({
     },
     postedBy:{
         type: ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true
     },
     mushID:{
         type: ObjectId,
         ref:"Mushrooms"
     },
-    voted: {
+    voted:{
         type: Boolean,
-        default: false,
+        default: false
     },
-    date: {
-        type: Date, //Might need to have extra specifications, required?
-    },
-    __v: {
-        type: int, //not actually sure what __v is... lol
+    date:{
+        type: Date
     }
 
 })
