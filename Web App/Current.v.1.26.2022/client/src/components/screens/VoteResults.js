@@ -91,8 +91,7 @@ const VoteResults = ()=>{
                        className={classes.media}
                       image={elem.image}
                     />
-                    {elem.voted  
-                    ? <CardContent>
+                    <CardContent>
                         <Typography gutterBottom variant = "h5" component = "div">
                             {elem.mushID.common}
                         </Typography>
@@ -103,11 +102,6 @@ const VoteResults = ()=>{
                             Information about the mushroom: <a href= {elem.mushID.wiki}>Wikipedia</a>
                         </Typography>
                     </CardContent>
-                    : <CardContent>
-                    <Typography gutterBottom variant = "h5" component = "div">
-                        Currently being voted.
-                    </Typography>
-                </CardContent>}
                   </Card>
                 </Grid>
               ))}
