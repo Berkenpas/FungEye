@@ -84,34 +84,33 @@ const VoteResults = ()=>{
                 <p></p>
                
                 <Grid container spacing = {3}>
-                    {
-                        data.map(item =>(
-                            <Grid item xs={12} sm ={4}>
-                                <Card className={classes.card}>
-                                    <CardMedia
-                                    className={classes.media}
-                                        image={item.image} name = "image" value = {item._id}
-                                    />
-                                    <CardContent>
-                                        <div>  
-                                        {
-                                          mushroomop.map((option)=>(
-                                            <p>
-                                              
-                                            </p>))
-                                        }
-                              
-                                                <p></p>
-                                            
-                                        </div>
-                                            
-                                                   
-                                    </CardContent>
-                                    
-                                </Card>
-                            </Grid>
-                        ))
-                    }
+                {data.map(elem => (
+                <Grid item xs={12} sm={4} >
+                  <Card className={classes.card}>
+                    <CardMedia
+                       className={classes.media}
+                      image={elem.image}
+                    />
+                    {elem.voted  
+                    ? <CardContent>
+                        <Typography gutterBottom variant = "h5" component = "div">
+                            {elem.mushID.common}
+                        </Typography>
+                        <Typography gutterBottom variant = "h7" component = "div">
+                            {elem.mushID.latin}
+                        </Typography>
+                        <Typography  varient = "body2" color="text.secondary">
+                            Information about the mushroom: <a href= {elem.mushID.wiki}>Wikipedia</a>
+                        </Typography>
+                    </CardContent>
+                    : <CardContent>
+                    <Typography gutterBottom variant = "h5" component = "div">
+                        Currently being voted.
+                    </Typography>
+                </CardContent>}
+                  </Card>
+                </Grid>
+              ))}
                 </Grid>
             </Container>
             
