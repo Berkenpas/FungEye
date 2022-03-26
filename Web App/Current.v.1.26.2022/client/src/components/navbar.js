@@ -1,6 +1,13 @@
-import React, {useContext} from 'react';
+import React, {Component, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {UserContext} from '../App'
+import M from 'materialize-css'
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems);
+});
 
 const NavBar = ()=>{
     const navigate = useNavigate()
@@ -8,21 +15,16 @@ const NavBar = ()=>{
     const renderList = () =>{
         if(state){
             return [
-            <li><Link to="/myuploads">My Uploads</Link></li>,
-            <li><Link to="/uploadimage">Upload Photo</Link></li>,
-            <li><Link to="/aboutus">About Us</Link></li>,
-            <li><Link to="/voteresults">Vote Results</Link></li>,
-            <li>
-                <button className="btn waves-effect waves-light #a1887f brown lighten-2" 
-                onClick = {()=>{
-                    localStorage.clear()
-                    dispatch({type: "CLEAR"})
-                    navigate('/login')
-                }}>
-                    Logout
-                </button>
-            </li>
-            
+                <div>
+                    <a class='dropdown-trigger' data-target='dropdown1'>Menu</a>
+                    <ul id='dropdown1' class='dropdown-content'>
+                        <li><Link to="/myuploads">My Uploads</Link></li>,
+                        <li><Link to="/uploadimage">Upload Photo</Link></li>,
+                        <li><Link to="/aboutus">About Us</Link></li>,
+                        <li><Link to="/voteresults">Vote Results</Link></li>,
+                    </ul>
+                </div>
+                
             ]
         }
         else{
