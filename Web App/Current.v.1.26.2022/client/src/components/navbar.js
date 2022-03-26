@@ -9,20 +9,34 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Dropdown.init(elems);
 });
 
+
+
 const NavBar = ()=>{
     const navigate = useNavigate()
     const {state, dispatch} = useContext(UserContext)
+    
     const renderList = () =>{
         if(state){
+            
             return [
                 <div>
-                    <a class='dropdown-trigger' data-target='dropdown1'>Menu</a>
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><Link to="/myuploads">My Uploads</Link></li>,
-                        <li><Link to="/uploadimage">Upload Photo</Link></li>,
-                        <li><Link to="/aboutus">About Us</Link></li>,
-                        <li><Link to="/voteresults">Vote Results</Link></li>,
+                        <li><a href="/uploadimage">Upload Photo</a></li>
+                        <li><a href="/myuploads">My Uploads</a></li>
+                        <li><a href="/voteresults">Vote Results</a></li>
+                        <li class="divider"></li>
+                        <li><a onClick={()=>{
+                                localStorage.clear()
+                                dispatch({type: "CLEAR"})
+                                navigate('/login')
+                        }}>Logout</a>
+                        </li>
                     </ul>
+                    <li><Link to={state?"/":"/login"}>Vote</Link></li>
+                    <li><Link to="/aboutus">About Us</Link></li>
+                    <li><a class="dropdown-trigger" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+                    
+
                 </div>
                 
             ]

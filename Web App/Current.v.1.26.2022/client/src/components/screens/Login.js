@@ -3,6 +3,8 @@ import {Link, useNavigate} from 'react-router-dom';
 import M from 'materialize-css';
 import {UserContext} from '../../App'
 
+//TODO force page to reload after login
+
 const Login = ()=>{
     const {state, dispatch} = useContext(UserContext)
     const [email, setEmail] = useState("")
