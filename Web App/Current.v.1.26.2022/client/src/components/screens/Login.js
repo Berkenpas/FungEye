@@ -11,6 +11,10 @@ const Login = ()=>{
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
+    function refresh_page(){
+        window.location.reload();
+    }
+
     const PostData = ()=>{
         //insert here for username max char, video 19 @ 20 min
         fetch("/login",{
@@ -33,11 +37,11 @@ const Login = ()=>{
                 
                 M.toast({html: "Signed In", classes: "#4caf50 green"})
                 navigate('/');
+                refresh_page();
             }
         }).catch(err=>{
             console.log(err)
         })
-
     }
     return(
         <div className = "myCar">
@@ -56,7 +60,9 @@ const Login = ()=>{
                     onChange = {(e)=> setPassword(e.target.value)}
                 />
                 <button className="btn waves-effect waves-light #a1887f brown lighten-2" 
-                onClick = {()=>PostData()}>
+                onClick = {()=>{
+                    PostData()
+                    }}>
                     Login
                 </button>
                 <h5>
