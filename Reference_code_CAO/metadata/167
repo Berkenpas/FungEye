@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE167.png",
+    "tokenId": 167,
+    "name": "ADD_PROJECT_NAME_HERE 167",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "woodland"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "cigar"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Fly_Agaric"
+        }
+    ]
+}

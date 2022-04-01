@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "winter"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "glasses"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "leggies"
         },
         {
             "trait_type": "Tops",
-            "value": "Morel"
+            "value": "minty"
         }
     ]
 }

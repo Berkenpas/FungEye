@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE161.png",
+    "tokenId": 161,
+    "name": "ADD_PROJECT_NAME_HERE 161",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "night"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "mon"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Pinky"
+        }
+    ]
+}

@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Red"
+            "value": "woodland"
         },
         {
             "trait_type": "Accessories",
-            "value": "Bowtie_Blue"
+            "value": "mon"
         },
         {
             "trait_type": "Stems",
-            "value": "Plain_Jane"
+            "value": "Skirt"
         },
         {
             "trait_type": "Tops",
-            "value": "Morel"
+            "value": "subterrain"
         }
     ]
 }

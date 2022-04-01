@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "Green"
         },
         {
             "trait_type": "Accessories",
-            "value": "Bowtie_Blue"
+            "value": "None"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "nub"
         },
         {
             "trait_type": "Tops",
-            "value": "minty"
+            "value": "Morel"
         }
     ]
 }

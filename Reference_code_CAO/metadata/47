@@ -5,11 +5,11 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "Green"
         },
         {
             "trait_type": "Accessories",
-            "value": "ShutterShades_Green"
+            "value": "heart_eyes"
         },
         {
             "trait_type": "Stems",
@@ -17,7 +17,7 @@
         },
         {
             "trait_type": "Tops",
-            "value": "Morel"
+            "value": "Fly_Agaric"
         }
     ]
 }

@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "woodland"
         },
         {
             "trait_type": "Accessories",
-            "value": "ShutterShades_Green"
+            "value": "cigar"
         },
         {
             "trait_type": "Stems",
-            "value": "Skirt"
+            "value": "leggies"
         },
         {
             "trait_type": "Tops",
-            "value": "Morel"
+            "value": "LBM"
         }
     ]
 }

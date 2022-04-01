@@ -5,7 +5,7 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "night"
         },
         {
             "trait_type": "Accessories",
@@ -13,11 +13,11 @@
         },
         {
             "trait_type": "Stems",
-            "value": "Skirt"
+            "value": "leggies"
         },
         {
             "trait_type": "Tops",
-            "value": "LBM"
+            "value": "Ol_Purple"
         }
     ]
 }

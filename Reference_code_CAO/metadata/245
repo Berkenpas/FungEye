@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE245.png",
+    "tokenId": 245,
+    "name": "ADD_PROJECT_NAME_HERE 245",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "woodland"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Gold"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE189.png",
+    "tokenId": 189,
+    "name": "ADD_PROJECT_NAME_HERE 189",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "math"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "mon"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "violet"
+        }
+    ]
+}

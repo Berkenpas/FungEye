@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "python"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "mustache"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "leggies"
         },
         {
             "trait_type": "Tops",
-            "value": "Ol_Red"
+            "value": "Ol_Purple"
         }
     ]
 }

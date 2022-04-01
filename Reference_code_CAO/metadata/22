@@ -5,15 +5,15 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "night"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "ShutterShades_Green"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "Plain_Jane"
         },
         {
             "trait_type": "Tops",

@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE278.png",
+    "tokenId": 278,
+    "name": "ADD_PROJECT_NAME_HERE 278",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Blue"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Blue"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "lobster"
+        }
+    ]
+}

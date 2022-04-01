@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE120.png",
+    "tokenId": 120,
+    "name": "ADD_PROJECT_NAME_HERE 120",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Rb"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "glasses"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Plain_Jane"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Fly_Agaric"
+        }
+    ]
+}

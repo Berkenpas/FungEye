@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE225.png",
+    "tokenId": 225,
+    "name": "ADD_PROJECT_NAME_HERE 225",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "winter"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "heart_eyes"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "minty"
+        }
+    ]
+}

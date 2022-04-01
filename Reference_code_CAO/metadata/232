@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE232.png",
+    "tokenId": 232,
+    "name": "ADD_PROJECT_NAME_HERE 232",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "night"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "None"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Pinky"
+        }
+    ]
+}

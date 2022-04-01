@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE255.png",
+    "tokenId": 255,
+    "name": "ADD_PROJECT_NAME_HERE 255",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Gold"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "pennybun"
+        }
+    ]
+}

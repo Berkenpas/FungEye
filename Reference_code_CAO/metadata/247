@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE247.png",
+    "tokenId": 247,
+    "name": "ADD_PROJECT_NAME_HERE 247",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "bin"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Purple"
+        }
+    ]
+}

@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "rain"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "heart_eyes"
         },
         {
             "trait_type": "Stems",
-            "value": "Plain_Jane"
+            "value": "fresh_pick"
         },
         {
             "trait_type": "Tops",
-            "value": "Ol_Pinky"
+            "value": "violet"
         }
     ]
 }

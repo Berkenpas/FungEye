@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE156.png",
+    "tokenId": 156,
+    "name": "ADD_PROJECT_NAME_HERE 156",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "bin"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Gold"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Pinky"
+        }
+    ]
+}

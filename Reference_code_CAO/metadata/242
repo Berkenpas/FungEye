@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE242.png",
+    "tokenId": 242,
+    "name": "ADD_PROJECT_NAME_HERE 242",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "math"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "glasses"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Plain_Jane"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "minty"
+        }
+    ]
+}

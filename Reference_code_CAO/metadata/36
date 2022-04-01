@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "woodland"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "sunglasses"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "fresh_pick"
         },
         {
             "trait_type": "Tops",
-            "value": "subterrain"
+            "value": "Morel"
         }
     ]
 }

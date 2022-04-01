@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE218.png",
+    "tokenId": 218,
+    "name": "ADD_PROJECT_NAME_HERE 218",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Gold"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "lobster"
+        }
+    ]
+}

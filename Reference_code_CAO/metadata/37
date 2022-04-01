@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Red"
+            "value": "Rb"
         },
         {
             "trait_type": "Accessories",
-            "value": "sunglasses"
+            "value": "mustache"
         },
         {
             "trait_type": "Stems",
-            "value": "Plain_Jane"
+            "value": "nub"
         },
         {
             "trait_type": "Tops",
-            "value": "LBM"
+            "value": "Ol_Red"
         }
     ]
 }

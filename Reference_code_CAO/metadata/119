@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE119.png",
+    "tokenId": 119,
+    "name": "ADD_PROJECT_NAME_HERE 119",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "python"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "heart_eyes"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "subterrain"
+        }
+    ]
+}

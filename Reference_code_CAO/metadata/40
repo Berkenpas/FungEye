@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "bin"
         },
         {
             "trait_type": "Accessories",
-            "value": "sunglasses"
+            "value": "ShutterShades_Blue"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "Plain_Jane"
         },
         {
             "trait_type": "Tops",
-            "value": "Fly_Agaric"
+            "value": "pennybun"
         }
     ]
 }

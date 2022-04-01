@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE150.png",
+    "tokenId": 150,
+    "name": "ADD_PROJECT_NAME_HERE 150",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "heart_eyes"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

@@ -5,11 +5,11 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "woodland"
         },
         {
             "trait_type": "Accessories",
-            "value": "Bowtie_Blue"
+            "value": "mustache"
         },
         {
             "trait_type": "Stems",
@@ -17,7 +17,7 @@
         },
         {
             "trait_type": "Tops",
-            "value": "subterrain"
+            "value": "Ol_Red"
         }
     ]
 }

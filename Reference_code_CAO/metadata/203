@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE203.png",
+    "tokenId": 203,
+    "name": "ADD_PROJECT_NAME_HERE 203",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "Green"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "cigar"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "minty"
+        }
+    ]
+}

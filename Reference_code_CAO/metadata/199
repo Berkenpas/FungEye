@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE199.png",
+    "tokenId": 199,
+    "name": "ADD_PROJECT_NAME_HERE 199",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "winter"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "cigar"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "lobster"
+        }
+    ]
+}

@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "Blue"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "mon"
         },
         {
             "trait_type": "Stems",
-            "value": "Skirt"
+            "value": "nub"
         },
         {
             "trait_type": "Tops",
-            "value": "LBM"
+            "value": "subterrain"
         }
     ]
 }

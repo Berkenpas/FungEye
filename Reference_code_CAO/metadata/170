@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE170.png",
+    "tokenId": 170,
+    "name": "ADD_PROJECT_NAME_HERE 170",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "winter"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Gold"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "LBM"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE140.png",
+    "tokenId": 140,
+    "name": "ADD_PROJECT_NAME_HERE 140",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "night"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Blue"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Pinky"
+        }
+    ]
+}

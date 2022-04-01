@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "math"
         },
         {
             "trait_type": "Accessories",
-            "value": "sunglasses"
+            "value": "ShutterShades_Gold"
         },
         {
             "trait_type": "Stems",
-            "value": "Plain_Jane"
+            "value": "Skirt"
         },
         {
             "trait_type": "Tops",
-            "value": "Ol_Red"
+            "value": "Fly_Agaric"
         }
     ]
 }

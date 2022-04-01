@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE164.png",
+    "tokenId": 164,
+    "name": "ADD_PROJECT_NAME_HERE 164",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "math"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "mustache"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Plain_Jane"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "pennybun"
+        }
+    ]
+}

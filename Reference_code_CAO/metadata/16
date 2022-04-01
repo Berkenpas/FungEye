@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Red"
+            "value": "bin"
         },
         {
             "trait_type": "Accessories",
-            "value": "sunglasses"
+            "value": "ShutterShades_Green"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "nub"
         },
         {
             "trait_type": "Tops",
-            "value": "Fly_Agaric"
+            "value": "subterrain"
         }
     ]
 }

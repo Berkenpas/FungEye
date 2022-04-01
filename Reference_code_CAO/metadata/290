@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE290.png",
+    "tokenId": 290,
+    "name": "ADD_PROJECT_NAME_HERE 290",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "woodland"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Green"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Plain_Jane"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Red"
+        }
+    ]
+}

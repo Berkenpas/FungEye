@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE175.png",
+    "tokenId": 175,
+    "name": "ADD_PROJECT_NAME_HERE 175",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "woodland"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "None"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "subterrain"
+        }
+    ]
+}

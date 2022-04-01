@@ -5,7 +5,7 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "Blue"
         },
         {
             "trait_type": "Accessories",
@@ -17,7 +17,7 @@
         },
         {
             "trait_type": "Tops",
-            "value": "subterrain"
+            "value": "Morel"
         }
     ]
 }

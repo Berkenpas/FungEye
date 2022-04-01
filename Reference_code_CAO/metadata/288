@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE288.png",
+    "tokenId": 288,
+    "name": "ADD_PROJECT_NAME_HERE 288",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "winter"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "glasses"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

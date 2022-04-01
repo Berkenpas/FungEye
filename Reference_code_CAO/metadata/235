@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE235.png",
+    "tokenId": 235,
+    "name": "ADD_PROJECT_NAME_HERE 235",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "winter"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "sunglasses"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "violet"
+        }
+    ]
+}

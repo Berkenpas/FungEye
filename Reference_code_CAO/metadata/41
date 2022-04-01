@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "python"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "ShutterShades_Green"
         },
         {
             "trait_type": "Stems",
-            "value": "Plain_Jane"
+            "value": "leggies"
         },
         {
             "trait_type": "Tops",
-            "value": "minty"
+            "value": "Ol_Purple"
         }
     ]
 }

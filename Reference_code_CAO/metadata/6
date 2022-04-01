@@ -5,15 +5,15 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Red"
+            "value": "night"
         },
         {
             "trait_type": "Accessories",
-            "value": "None"
+            "value": "mon"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "nub"
         },
         {
             "trait_type": "Tops",

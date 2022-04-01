@@ -57,7 +57,8 @@ tops_weights = [weight for name in tops]
 
 ## Generate Traits
 
-TOTAL_IMAGES = 100 # Number of random unique images we want to generate
+TOTAL_IMAGES = 300 # Number of random unique images we want to generate
+random.seed(69696969696969)
 
 all_images = [] 
 
