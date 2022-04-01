@@ -22,6 +22,7 @@ require('./models/mush_species');
 require('./models/predictions');
 require('./models/post');
 require('./models/votes');
+require('./models/vote_results');
 
 mongoose.model("User");
 

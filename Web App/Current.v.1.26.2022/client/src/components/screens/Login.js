@@ -3,11 +3,17 @@ import {Link, useNavigate} from 'react-router-dom';
 import M from 'materialize-css';
 import {UserContext} from '../../App'
 
+//TODO force page to reload after login
+
 const Login = ()=>{
     const {state, dispatch} = useContext(UserContext)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+
+    function refresh_page(){
+        window.location.reload();
+    }
 
     const PostData = ()=>{
         //insert here for username max char, video 19 @ 20 min
@@ -31,11 +37,11 @@ const Login = ()=>{
                 
                 M.toast({html: "Signed In", classes: "#4caf50 green"})
                 navigate('/');
+                refresh_page();
             }
         }).catch(err=>{
             console.log(err)
         })
-
     }
     return(
         <div className = "myCar">
@@ -54,7 +60,9 @@ const Login = ()=>{
                     onChange = {(e)=> setPassword(e.target.value)}
                 />
                 <button className="btn waves-effect waves-light #a1887f brown lighten-2" 
-                onClick = {()=>PostData()}>
+                onClick = {()=>{
+                    PostData()
+                    }}>
                     Login
                 </button>
                 <h5>

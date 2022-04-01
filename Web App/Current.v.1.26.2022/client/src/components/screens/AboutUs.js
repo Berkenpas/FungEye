@@ -66,7 +66,7 @@ const AboutUs = ()=>{
               align="center"
             >
                 <p></p>
-              We are FunEye group.
+              We are FungEye group.
             </Typography>
             </div>
             </ThemeProvider>
