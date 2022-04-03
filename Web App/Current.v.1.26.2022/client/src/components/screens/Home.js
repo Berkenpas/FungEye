@@ -22,7 +22,7 @@ const useStyles = makeStyles({
       backgroundColor: "#fafafa",
     },
     media: {
-      height: 200,
+      height: 300,
     },
 });
 
