@@ -59,3 +59,12 @@ a{
     border: none;
     background: none;
 }
+
+.scroll-container{
+    margin:px;
+    padding:5px;
+    width: 500px;
+    height: 155px;
+    overflow: auto;
+    text-align:justify;
+};

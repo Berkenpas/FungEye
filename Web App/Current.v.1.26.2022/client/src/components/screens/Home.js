@@ -15,6 +15,8 @@ import {useNavigate} from 'react-router-dom';
 import M from 'materialize-css';
 
 
+
+
 const useStyles = makeStyles({
     card: {
       maxWidth: 345,
@@ -163,7 +165,7 @@ const Home = ()=>{
                                         </IconButton>
                                             <Typography> Which mushroom do you identify in this image?</Typography>
                                             
-                                         <div>  
+                                         <div class="scroll-container">  
                                         {
                                                 mushroomop.map((option)=>(
                                                     <p>
@@ -173,10 +175,9 @@ const Home = ()=>{
                                                     </label>
                                                     </p>
                                                 ))
-                                            }
+                                        }
                                                     
-                                                    <p></p>
-                                            
+                                                    <p></p>  
                                         </div> 
                                             <label>
                                             <button className="btn waves-effect waves-light" type="submit" name = "submit" value = {item._id}  onClick = {(e)=>setSubmit(e.target.value)}>Submit
