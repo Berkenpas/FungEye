@@ -68,7 +68,9 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
     var maxVoteID;
     var userscore = req.user.score;
 
-    Votes.find({image_id: req.body.image})
+    //console.log("Request body: " + JSON.stringify(req.body))
+
+    await Votes.find({image_id: req.body.image})
             .then(result=>{
                 console.log("RESULT: " + JSON.stringify(result))
                 voteTotal = result.length;
@@ -124,11 +126,11 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                     console.log(err)
                 })
                 //console.log("Max count: " + maxCount + " Max vote: " + JSON.stringify(maxVoteID))
+                
             })
             .catch(err=>{
                 console.log(err)
             })
-    
     //set mushID to image based on majority
     await Post.updateOne(
         {_id: req.body.image},

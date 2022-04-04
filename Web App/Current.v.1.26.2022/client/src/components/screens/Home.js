@@ -99,28 +99,27 @@ const Home = ()=>{
 
                     navigate('/');
                 }
+
+                if(true){
+                        fetch('/updateafter',{
+                        method: "post",
+                            headers: {
+                                "Content-Type":"application/json",
+                                "Authorization": "Bearer " + localStorage.getItem("jwt")
+                            },
+                            body: JSON.stringify({
+                                image: submit,
+                                vote: choice
+                            })
+                    }).then(res=>res.json())
+                }
             })
 
         }
+
+        
     }, [choice, submit])
 
-    useEffect(()=>{
- 
-        if(false){
-            fetch('/updateafter',{
-            method: "post",
-                headers: {
-                    "Content-Type":"application/json",
-                    "Authorization": "Bearer " + localStorage.getItem("jwt")
-                },
-                body: JSON.stringify({
-                    image: submit,
-                    vote: choice
-                })
-        }).then(res=>res.json())
-        }
-        
-    },[] )
 
     const classes = useStyles();
 
@@ -165,7 +164,7 @@ const Home = ()=>{
                                         </IconButton>
                                             <Typography> Which mushroom do you identify in this image?</Typography>
                                             
-                                         <div class="scroll-container">  
+                                         <div className="scroll-container">  
                                         {
                                                 mushroomop.map((option)=>(
                                                     <p>
@@ -179,6 +178,7 @@ const Home = ()=>{
                                                     
                                                     <p></p>  
                                         </div> 
+                                        <p></p>
                                             <label>
                                             <button className="btn waves-effect waves-light" type="submit" name = "submit" value = {item._id}  onClick = {(e)=>setSubmit(e.target.value)}>Submit
                                                 <i className ="material-icons right">send</i>
