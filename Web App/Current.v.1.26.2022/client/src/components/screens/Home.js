@@ -40,7 +40,8 @@ const Home = ()=>{
     const [mushroomop, setOptions] = useState([])
     const [choice, setChoice] = useState("");
     const [submit, setSubmit] = useState("");
-    const [votes, setVotes] = useState([]);
+    const [voted, setVoted] = useState([]);
+    const [total, setTotal] = useState("");
 
 
     useEffect(()=>{
@@ -67,8 +68,7 @@ const Home = ()=>{
 
 
 
-    
-const navigate = useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() => {
         
@@ -90,16 +90,35 @@ const navigate = useNavigate()
                 }
                 else{
                     M.toast({html: "Vote Sent", classes: "#4caf50 green"})
-                    //clear the choice and submit states
                     
+                    setVoted(prevState =>
+                        [...prevState, submit]
+                    )
+
                     navigate('/');
                 }
-            }).catch(err=>{
-                console.log(err)
             })
 
         }
     }, [choice, submit])
+
+    useEffect(()=>{
+ 
+        if(false){
+            fetch('/updateafter',{
+            method: "post",
+                headers: {
+                    "Content-Type":"application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("jwt")
+                },
+                body: JSON.stringify({
+                    image: submit,
+                    vote: choice
+                })
+        }).then(res=>res.json())
+        }
+        
+    },[] )
 
     const classes = useStyles();
 
@@ -137,6 +156,7 @@ const navigate = useNavigate()
                                     className={classes.media}
                                         image={item.image} name = "image" value = {item._id}
                                     />
+                                    {!voted.includes(item._id) ?
                                     <CardContent>
                                         <IconButton aria-label="vote">
                                         <BallotOutlinedIcon />
@@ -163,10 +183,12 @@ const navigate = useNavigate()
                                                 <i className ="material-icons right">send</i>
                                             </button>
                                             </label>
-                                            
-                                                   
-                                    </CardContent>
-                                    
+                                    </CardContent> :
+                                    <CardContent>
+                                    <Typography gutterBottom variant = "h5" component = "div">
+                                        Thank you for voting!
+                                    </Typography>
+                                </CardContent>}
                                 </Card>
                             </Grid>
                         ))
