@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE135.png",
+    "tokenId": 135,
+    "name": "ADD_PROJECT_NAME_HERE 135",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "night"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "mustache"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "fresh_pick"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "subterrain"
+        }
+    ]
+}

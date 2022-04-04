@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE256.png",
+    "tokenId": 256,
+    "name": "ADD_PROJECT_NAME_HERE 256",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "python"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Blue"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "fresh_pick"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

@@ -34,6 +34,15 @@ const NavBar = ()=>{
                     </ul>
                     <li><Link to={state?"/":"/login"}>Vote</Link></li>
                     <li><Link to="/aboutus">About Us</Link></li>
+                    <li><Link to="/uploadimage">UPLOAD</Link></li>
+                    <li><Link to="/myuploads">MY UPLOADS</Link></li>
+                    <li><Link to="/voteresults">RESULTS</Link></li>
+                    <li><a onClick={()=>{
+                                localStorage.clear()
+                                dispatch({type: "CLEAR"})
+                                navigate('/login')
+                        }}>Logout</a>
+                        </li>
                     <li><a class="dropdown-trigger" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
                     
 

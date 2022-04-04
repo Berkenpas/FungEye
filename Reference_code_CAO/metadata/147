@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE147.png",
+    "tokenId": 147,
+    "name": "ADD_PROJECT_NAME_HERE 147",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "bin"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Blue"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "leggies"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Red"
+        }
+    ]
+}

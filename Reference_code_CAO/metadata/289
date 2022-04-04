@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE289.png",
+    "tokenId": 289,
+    "name": "ADD_PROJECT_NAME_HERE 289",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "woodland"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "None"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Pinky"
+        }
+    ]
+}

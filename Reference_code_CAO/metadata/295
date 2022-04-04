@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE295.png",
+    "tokenId": 295,
+    "name": "ADD_PROJECT_NAME_HERE 295",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "winter"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Blue"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "fresh_pick"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "subterrain"
+        }
+    ]
+}

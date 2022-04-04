@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE266.png",
+    "tokenId": 266,
+    "name": "ADD_PROJECT_NAME_HERE 266",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "rain"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Blue"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Plain_Jane"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

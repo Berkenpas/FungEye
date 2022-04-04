@@ -5,11 +5,11 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Red"
+            "value": "rain"
         },
         {
             "trait_type": "Accessories",
-            "value": "sunglasses"
+            "value": "cigar"
         },
         {
             "trait_type": "Stems",
@@ -17,7 +17,7 @@
         },
         {
             "trait_type": "Tops",
-            "value": "Ol_Purple"
+            "value": "pennybun"
         }
     ]
 }

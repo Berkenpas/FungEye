@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE157.png",
+    "tokenId": 157,
+    "name": "ADD_PROJECT_NAME_HERE 157",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "math"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Gold"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "fresh_pick"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "minty"
+        }
+    ]
+}

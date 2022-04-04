@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE205.png",
+    "tokenId": 205,
+    "name": "ADD_PROJECT_NAME_HERE 205",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "math"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Gold"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "subterrain"
+        }
+    ]
+}

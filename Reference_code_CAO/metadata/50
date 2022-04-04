@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Blue"
+            "value": "rain"
         },
         {
             "trait_type": "Accessories",
-            "value": "ShutterShades_Green"
+            "value": "ShutterShades_Gold"
         },
         {
             "trait_type": "Stems",
-            "value": "Plain_Jane"
+            "value": "fresh_pick"
         },
         {
             "trait_type": "Tops",
-            "value": "Ol_Pinky"
+            "value": "lobster"
         }
     ]
 }

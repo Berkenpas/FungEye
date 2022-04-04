@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "woodland"
         },
         {
             "trait_type": "Accessories",
-            "value": "sunglasses"
+            "value": "mon"
         },
         {
             "trait_type": "Stems",
-            "value": "Skirt"
+            "value": "leggies"
         },
         {
             "trait_type": "Tops",
-            "value": "minty"
+            "value": "LBM"
         }
     ]
 }

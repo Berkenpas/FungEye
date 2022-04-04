@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "math"
         },
         {
             "trait_type": "Accessories",
-            "value": "ShutterShades_Green"
+            "value": "mustache"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "fresh_pick"
         },
         {
             "trait_type": "Tops",
-            "value": "Fly_Agaric"
+            "value": "Morel"
         }
     ]
 }

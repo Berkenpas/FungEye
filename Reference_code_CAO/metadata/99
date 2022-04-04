@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "Green"
         },
         {
             "trait_type": "Accessories",
-            "value": "Bowtie_Blue"
+            "value": "glasses"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "fresh_pick"
         },
         {
             "trait_type": "Tops",
-            "value": "LBM"
+            "value": "Morel"
         }
     ]
 }

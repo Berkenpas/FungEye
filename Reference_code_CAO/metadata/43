@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Rb"
+            "value": "bin"
         },
         {
             "trait_type": "Accessories",
-            "value": "ShutterShades_Green"
+            "value": "cigar"
         },
         {
             "trait_type": "Stems",
-            "value": "Skirt"
+            "value": "fresh_pick"
         },
         {
             "trait_type": "Tops",
-            "value": "minty"
+            "value": "LBM"
         }
     ]
 }

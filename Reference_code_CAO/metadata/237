@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE237.png",
+    "tokenId": 237,
+    "name": "ADD_PROJECT_NAME_HERE 237",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "rain"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "cigar"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "Skirt"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Purple"
+        }
+    ]
+}

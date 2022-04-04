@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE115.png",
+    "tokenId": 115,
+    "name": "ADD_PROJECT_NAME_HERE 115",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "python"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "glasses"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "nub"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Ol_Red"
+        }
+    ]
+}

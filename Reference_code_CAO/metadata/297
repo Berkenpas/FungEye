@@ -1,0 +1,23 @@
+{
+    "image": "ADD_IMAGES_BASE_URI_HERE297.png",
+    "tokenId": 297,
+    "name": "ADD_PROJECT_NAME_HERE 297",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "rain"
+        },
+        {
+            "trait_type": "Accessories",
+            "value": "ShutterShades_Blue"
+        },
+        {
+            "trait_type": "Stems",
+            "value": "fresh_pick"
+        },
+        {
+            "trait_type": "Tops",
+            "value": "Morel"
+        }
+    ]
+}

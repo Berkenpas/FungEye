@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "math"
         },
         {
             "trait_type": "Accessories",
-            "value": "ShutterShades_Green"
+            "value": "heart_eyes"
         },
         {
             "trait_type": "Stems",
-            "value": "roots"
+            "value": "nub"
         },
         {
             "trait_type": "Tops",
-            "value": "Ol_Pinky"
+            "value": "violet"
         }
     ]
 }

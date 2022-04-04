@@ -5,19 +5,19 @@
     "attributes": [
         {
             "trait_type": "Background",
-            "value": "Green"
+            "value": "night"
         },
         {
             "trait_type": "Accessories",
-            "value": "Bowtie_Blue"
+            "value": "cigar"
         },
         {
             "trait_type": "Stems",
-            "value": "Plain_Jane"
+            "value": "leggies"
         },
         {
             "trait_type": "Tops",
-            "value": "minty"
+            "value": "Fly_Agaric"
         }
     ]
 }
