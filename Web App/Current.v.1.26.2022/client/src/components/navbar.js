@@ -21,11 +21,11 @@ const NavBar = ()=>{
             return [
                 <div>
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="/uploadimage">Upload Photo</a></li>
-                        <li><a href="/myuploads">My Uploads</a></li>
-                        <li><a href="/voteresults">Vote Results</a></li>
+                        <li><Link to="/uploadimage">Upload Photo</Link></li>
+                        <li><Link to="/myuploads">My Uploads</Link></li>
+                        <li><Link to="/voteresults">Vote Results</Link></li>
                         <li class="divider"></li>
-                        <li><a href="%" onClick={()=>{
+                        <li><a onClick={()=>{
                                 localStorage.clear()
                                 dispatch({type: "CLEAR"})
                                 navigate('/login')
@@ -34,15 +34,6 @@ const NavBar = ()=>{
                     </ul>
                     <li><Link to={state?"/":"/login"}>Vote</Link></li>
                     <li><Link to="/aboutus">About Us</Link></li>
-                    <li><Link to="/uploadimage">UPLOAD</Link></li>
-                    <li><Link to="/myuploads">MY UPLOADS</Link></li>
-                    <li><Link to="/voteresults">RESULTS</Link></li>
-                    <li><a onClick={()=>{
-                                localStorage.clear()
-                                dispatch({type: "CLEAR"})
-                                navigate('/login')
-                        }}>Logout</a>
-                        </li>
                     <li><a class="dropdown-trigger" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
                     
 
