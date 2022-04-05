@@ -35,8 +35,16 @@ router.get('/allmush', requireLogin, (req, res)=>{
         })
 })
 
-//updates after 5 votes per image
-
+//find totalvotes
+router.post('/findvotes', requireLogin, (req, res)=>{
+    Votes.find({image_id: req.body.image})
+            .then(result=>{
+                console.log("TOTAL VOTES : " + result)
+                res.json(result)})
+            .catch(err=>{
+                console.log(err)
+            })
+})
 
 //stores votes
 router.post('/storevote',  requireLogin, (req, res)=>{
@@ -72,7 +80,7 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
 
     await Votes.find({image_id: req.body.image})
             .then(result=>{
-                console.log("RESULT: " + JSON.stringify(result))
+                //console.log("RESULT: " + JSON.stringify(result))
                 voteTotal = result.length;
                 //console.log(voteTotal)
                 //create 2d array

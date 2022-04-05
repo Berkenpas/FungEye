@@ -42,8 +42,13 @@ const Home = ()=>{
     const [mushroomop, setOptions] = useState([])
     const [choice, setChoice] = useState("");
     const [submit, setSubmit] = useState("");
-    const [voted, setVoted] = useState([]);
+    const [voted, setVoted] = useState(localStorage.getItem('after-vote'));
+    //const [wait, setWait] = useState();
     const [total, setTotal] = useState("");
+
+    useEffect(()=>{
+        localStorage.setItem('after-vote', voted)
+    }, [voted]);
 
 
     useEffect(()=>{
@@ -66,6 +71,26 @@ const Home = ()=>{
         .then(result=>{
             setOptions(result)
         })
+    }, [])
+
+    useEffect(()=>{
+        
+            fetch("/findvotes",{
+                method: "post", 
+                headers: {
+                    "Content-Type":"application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("jwt")
+                },
+                body: JSON.stringify({
+                    image: submit
+                })
+            }).then(res=>res.json()).then(result=>{
+                setTotal(result.length)
+            }).catch(err=>{
+                console.log(err)
+            })
+        
+        
     }, [])
 
 
@@ -100,7 +125,7 @@ const Home = ()=>{
                     navigate('/');
                 }
 
-                if(true){
+                if(total === 3){
                         fetch('/updateafter',{
                         method: "post",
                             headers: {
