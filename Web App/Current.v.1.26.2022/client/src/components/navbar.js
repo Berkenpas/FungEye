@@ -25,7 +25,7 @@ const NavBar = ()=>{
                         <li><a href="/myuploads">My Uploads</a></li>
                         <li><a href="/voteresults">Vote Results</a></li>
                         <li class="divider"></li>
-                        <li><a onClick={()=>{
+                        <li><a href="%" onClick={()=>{
                                 localStorage.clear()
                                 dispatch({type: "CLEAR"})
                                 navigate('/login')
