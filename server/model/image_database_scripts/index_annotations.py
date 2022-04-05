@@ -1,4 +1,5 @@
 import os
+import sys
 
 class AnnotationIndexer:
     """
@@ -72,7 +73,11 @@ class AnnotationIndexer:
             self.single_class_update(f, class_map[self._get_prefix(f)])
 
 if __name__ == "__main__":
-    path = "/data/FungEye/new_annotated/combined/"
+    if len(sys.argv) < 2:
+        print('index_annotations.py {DIRECTORY}')
+        sys.exit()
+
+    path = sys.argv[1]
     class_file = "classes.txt"
 
     # Get prefix orders
