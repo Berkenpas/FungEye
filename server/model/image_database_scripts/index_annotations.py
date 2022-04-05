@@ -13,7 +13,7 @@ class AnnotationIndexer:
         self.classes = classes
         self.prefixes = []
 
-    _file_list = lambda self: [f for f in os.listdir() if f.endswith(".txt") and f != "classes.txt"]
+    _file_list = lambda self: [f for f in os.listdir(self.path) if f.endswith(".txt") and f != "classes.txt"]
     _get_prefixes = lambda self: set([f.split(".")[0] for f in os.listdir() if f.endswith(".txt")])
     _get_prefix = lambda self, file_name: [prefix for prefix in self.classes if prefix in file_name][0]
 
@@ -72,7 +72,7 @@ class AnnotationIndexer:
             self.single_class_update(f, class_map[self._get_prefix(f)])
 
 if __name__ == "__main__":
-    path = "/home/cade/Projects/Fungi-Eye/server/model/image_database_scripts/"
+    path = "/data/FungEye/new_annotated/combined/"
     class_file = "classes.txt"
 
     # Get prefix orders
