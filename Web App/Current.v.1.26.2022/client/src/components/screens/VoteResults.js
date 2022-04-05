@@ -21,7 +21,7 @@ const useStyles = makeStyles({
       backgroundColor: "#fafafa",
     },
     media: {
-      height: 200,
+      height: 300,
     },
   });
 
@@ -36,12 +36,10 @@ const useStyles = makeStyles({
 
 
 const VoteResults = ()=>{
-    const [data, setData] = useState([])
-    const [mushroomop, setOptions] = useState([])
-    const {state, dispatch} = useContext(UserContext)
+    const [data, setData] = useState([]) 
 
     useEffect(()=>{
-        fetch('/allPostComplete',{
+        fetch('/voteresults',{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
             }
@@ -52,16 +50,6 @@ const VoteResults = ()=>{
     }, [])
 
 
-    useEffect(()=>{
-      fetch('/allmush',{
-          headers: {
-              "Authorization": "Bearer " + localStorage.getItem("jwt")
-          }
-      }).then(res=>res.json())
-      .then(result=>{
-          setOptions(result)
-      })
-  }, [])
 
     const classes = useStyles();
 
@@ -89,17 +77,20 @@ const VoteResults = ()=>{
                   <Card className={classes.card}>
                     <CardMedia
                        className={classes.media}
-                      image={elem.image}
+                      image={elem.picID.image}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant = "h5" component = "div">
-                            {elem.mushID.common}
+                        <Typography gutterBottom variant = "h6" component = "div">
+                            Final Result: {elem.voteResult.latin}
                         </Typography>
                         <Typography gutterBottom variant = "h7" component = "div">
-                            {elem.mushID.latin}
+                            {elem.voteResult.common}
                         </Typography>
                         <Typography  varient = "body2" color="text.secondary">
-                            Information about the mushroom: <a href= {elem.mushID.wiki}>Wikipedia</a>
+                            Prediction: {elem.prediction.mush_type.latin}
+                        </Typography>
+                        <Typography  varient = "body2" color="text.secondary">
+                            Total Votes: {elem.maxVote}
                         </Typography>
                     </CardContent>
                   </Card>

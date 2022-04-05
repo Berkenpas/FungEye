@@ -125,7 +125,7 @@ const Home = ()=>{
                     navigate('/');
                 }
 
-                if(total === 3){
+                if(true){
                         fetch('/updateafter',{
                         method: "post",
                             headers: {

@@ -20,10 +20,12 @@ const NavBar = ()=>{
             
             return [
                 <div>
-                    <ul id='dropdown1' class='dropdown-content'>
+                    {/*<ul id='dropdown1' class='dropdown-content'>*/}
+                        <li><Link to={state?"/":"/login"}>Vote</Link></li>
+                        <li><Link to="/voteresults">Vote Results</Link></li>
                         <li><Link to="/uploadimage">Upload Photo</Link></li>
                         <li><Link to="/myuploads">My Uploads</Link></li>
-                        <li><Link to="/voteresults">Vote Results</Link></li>
+                        <li><Link to="/aboutus">About Us</Link></li>
                         <li class="divider"></li>
                         <li><a onClick={()=>{
                                 localStorage.clear()
@@ -31,10 +33,10 @@ const NavBar = ()=>{
                                 navigate('/login')
                         }}>Logout</a>
                         </li>
-                    </ul>
-                    <li><Link to={state?"/":"/login"}>Vote</Link></li>
-                    <li><Link to="/aboutus">About Us</Link></li>
-                    <li><a class="dropdown-trigger" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>
+                    {/*</ul>*/}
+                    
+                    
+                    {/*<li><a class="dropdown-trigger" data-target="dropdown1">Menu<i class="material-icons right">arrow_drop_down</i></a></li>*/}
                     
 
                 </div>
