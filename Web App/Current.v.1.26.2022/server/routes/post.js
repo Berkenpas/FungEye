@@ -35,8 +35,11 @@ router.get('/allmush', requireLogin, (req, res)=>{
         })
 })
 
+//updates after 5 votes per image
+
+
 //stores votes
-router.post('/storevote',  requireLogin, async(req, res)=>{
+router.post('/storevote',  requireLogin, (req, res)=>{
     //console.log("Request body: " + JSON.stringify(req.body))
     const newVote = new Votes({
         user: req.user,
@@ -44,7 +47,16 @@ router.post('/storevote',  requireLogin, async(req, res)=>{
         vote: req.body.vote
         
     })
-    await newVote.save();
+    newVote.save().then(result =>{
+        res.json({post: result})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+})
+
+
+router.post('/updateafter', requireLogin, async(req, res)=>{
 
     //check if vote is majority
     //get all instances of votes for image 
@@ -56,9 +68,11 @@ router.post('/storevote',  requireLogin, async(req, res)=>{
     var maxVoteID;
     var userscore = req.user.score;
 
+    //console.log("Request body: " + JSON.stringify(req.body))
+
     await Votes.find({image_id: req.body.image})
             .then(result=>{
-                //console.log("RESULT: " + JSON.stringify(result))
+                console.log("RESULT: " + JSON.stringify(result))
                 voteTotal = result.length;
                 //console.log(voteTotal)
                 //create 2d array
@@ -112,11 +126,11 @@ router.post('/storevote',  requireLogin, async(req, res)=>{
                     console.log(err)
                 })
                 //console.log("Max count: " + maxCount + " Max vote: " + JSON.stringify(maxVoteID))
+                
             })
             .catch(err=>{
                 console.log(err)
             })
-    
     //set mushID to image based on majority
     await Post.updateOne(
         {_id: req.body.image},
