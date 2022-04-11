@@ -2,6 +2,7 @@
 MongoConnector class establishes simple connection to a MongoDB
 FungEyeConnector class extends MongoConnector with specific operations to this project
 '''
+from typing import List
 from bson.objectid import ObjectId
 
 class MongoConnector():
@@ -12,10 +13,11 @@ class MongoConnector():
 
     def __init__(self, url:str, db_name:str):
         from pymongo import MongoClient
+        from pymongo.errors import ConnectionFailure
         self._client = MongoClient(url)
         self._db = self._client[db_name]
     
-    def get(self, collection:str):
+    def get(self, collection:str) -> List:
         '''
         Returns list of instances in a collection
         '''
@@ -27,6 +29,13 @@ class MongoConnector():
         Adds a given collection element to specified collection
         '''
         self._db[collection_name].insert_one(insertion_dictionary)
+
+    def connected(self) -> bool:
+        try:
+            self._client.admin.command('ismaster')
+        except ConnectionFailure:
+            return False
+        return True
 
 class FungEyeConnector(MongoConnector):
     '''
@@ -58,7 +67,7 @@ class FungEyeConnector(MongoConnector):
             self._db['predictions'].delete_one( { "_id" : ObjectId(pred_id) } )
         return []
     
-    def find_prediction(self, pred_id:str="", pic_id:str=""):
+    def find_prediction(self, pred_id:str="", pic_id:str="") -> List:
         '''
         Find predictions with prediction ObjectId or picture ObjectId
         Returns list of all matching prediction ObjectId (should be length 0-1)
@@ -69,7 +78,7 @@ class FungEyeConnector(MongoConnector):
             return [e for e in self._db['predictions'].find( { "picture" : ObjectId(pic_id) } )]
         return []
     
-    def get_new_posts(self):
+    def get_new_posts(self) -> List:
         '''
         Grab all posts that have "voted" attribute as false
         '''
