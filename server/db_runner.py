@@ -8,17 +8,10 @@ from model_connect import FEModelConnector
 import requests # to get image from the web
 import shutil # to save it locally
 
-# Connection and Database Parameters
-# TODO: Move to configuration file
-CONNECTION_LINK = 'mongodb+srv://test:test@cluster0.ra83u.mongodb.net/InstaClone?retryWrites=true&w=majority'
-DATABASE = 'InstaClone'
-MODEL_DIR = '/data/FungEye/download_test/'
-MODEL_NAME = 'ThreeClass'
-
 class dbRunner:
-    def __init__(self):
-        self.connection = FungEyeConnector(CONNECTION_LINK, DATABASE)
-        self.model = FEModelConnector(MODEL_DIR, MODEL_NAME)
+    def __init__(self, con_link:str, db_name:str, model_dir:str, model_name:str):
+        self.connection = FungEyeConnector(con_link, db_name)
+        self.model = FEModelConnector(model_dir, model_name)
 
     def _download_picture(self, download_path:str, fname:str, url:str):
         r = requests.get(url, stream = True)
@@ -40,12 +33,18 @@ class dbRunner:
         False if not
         '''
         return self.connection.connected()
-    
-    def model_connected(self):
-        '''
-        True if model is running
-        False if not
-        '''
+
+    def predict_all_staged(self, in_path:str, out_path:str):
+        self.model.predict_all(in_path, out_path)
+
+    def upload_predicted(self):
+        pass
+
+    def update_newly_predicted(self):
+        pass
+
+    def store_predicted_local(self):
+        pass
 
 if __name__ == "__main__":
     # Connection and Database Parameters
@@ -55,10 +54,11 @@ if __name__ == "__main__":
     # Create access points
     runner = dbRunner()
 
+    print(runner.db_connected())
     # Get all new posts
-    runner.download_new_posts("/data/FungEye/download_test/")
+    #runner.download_new_posts(os.path.abspath(MODEL_DIR, "/staged/"))
 
     # Make predictions on new post
-    runner.model.predict_all()
+    #runner.predict_all_staged(os.path.abspath(MODEL_DIR, "/predicted/"))
 
     #/data/FungEye/testing/misc_testing/BerkPhotoshop
