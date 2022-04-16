@@ -43,8 +43,11 @@ const Home = ()=>{
     const [choice, setChoice] = useState("");
     const [submit, setSubmit] = useState("");
     const [voted, setVoted] = useState(localStorage.getItem('after-vote'));
+    const [userVotes, setUserVotes] = useState([]);
     //const [wait, setWait] = useState();
     const [total, setTotal] = useState("");
+
+    const initialState = {};
 
     useEffect(()=>{
         localStorage.setItem('after-vote', voted)
@@ -73,7 +76,18 @@ const Home = ()=>{
         })
     }, [])
 
-    useEffect(()=>{
+   /* useEffect(()=>{
+        fetch('/finduservotes',{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            }
+        }).then(res=>res.json())
+        .then(result=>{
+            setUserVotes(result)
+        })
+    }, [])*/
+
+   /* useEffect(()=>{
         
             fetch("/findvotes",{
                 method: "post", 
@@ -91,7 +105,21 @@ const Home = ()=>{
             })
         
         
-    }, [])
+    }, [])*/
+
+    function getVotes(){
+        fetch('/finduservotes',{
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            }
+        }).then(res=>res.json("Votes are set!"))
+        .then(voting=>{
+            setUserVotes(prevState =>
+                [...prevState, voting.image_id])
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
 
 
 
@@ -121,6 +149,7 @@ const Home = ()=>{
                     setVoted(prevState =>
                         [...prevState, submit]
                     )
+                    //clear submit
 
                     navigate('/');
                 }
@@ -148,6 +177,15 @@ const Home = ()=>{
 
     const classes = useStyles();
 
+    function checkVoted(image, userVoting){
+        var included = false;
+        
+        if(userVoting.includes(image)){
+            included = true;
+        }
+                
+        return included;
+    }
 
 
     
@@ -182,8 +220,9 @@ const Home = ()=>{
                                     className={classes.media}
                                         image={item.image} name = "image" value = {item._id}
                                     />
-                                    {!voted.includes(item._id) ?
-                                    <CardContent>
+                                    {!voted.includes(item._id)
+                                    
+                                    ?<CardContent>
                                         <IconButton aria-label="vote">
                                         <BallotOutlinedIcon />
                                         </IconButton>
@@ -211,10 +250,10 @@ const Home = ()=>{
                                             </label>
                                     </CardContent> :
                                     <CardContent>
-                                    <Typography gutterBottom variant = "h5" component = "div">
-                                        Thank you for voting!
-                                    </Typography>
-                                </CardContent>}
+                                        <Typography gutterBottom variant = "h5" component = "div">
+                                            Thank you for voting!
+                                        </Typography>
+                                    </CardContent>}
                                 </Card>
                             </Grid>
                         ))

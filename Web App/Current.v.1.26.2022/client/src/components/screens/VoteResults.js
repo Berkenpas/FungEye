@@ -86,8 +86,8 @@ const VoteResults = ()=>{
                         <Typography gutterBottom variant = "h7" component = "div">
                             {elem.voteResult.common}
                         </Typography>
-                        <Typography  varient = "body2" color="text.secondary">
-                            Prediction: {elem.prediction.mush_type.latin}
+                        <Typography gutterBottom variant = "h7" component = "div">
+                            Prediction: {elem.prediction.latin}
                         </Typography>
                         <Typography  varient = "body2" color="text.secondary">
                             Total Votes: {elem.maxVote}

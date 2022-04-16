@@ -12,6 +12,10 @@ const resultSchema = new mongoose.Schema({
     voteResult:{
         type: ObjectId,
         ref: "Mushrooms"
+    },
+    prediction:{
+        type: ObjectId,
+        ref: "Mushrooms"
     }
 })
 

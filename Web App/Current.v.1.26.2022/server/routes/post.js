@@ -8,6 +8,7 @@ const User = mongoose.model("User");
 const Mushrooms = mongoose.model("Mushrooms");
 const Predictions = mongoose.model("Predictions");
 const VoteResults = mongoose.model("VoteResults");
+var prediction;
 
 //this router is for the voting system that finds pictures that have not been identified
 router.get('/allpost', requireLogin,(req, res)=>{
@@ -16,6 +17,7 @@ router.get('/allpost', requireLogin,(req, res)=>{
     
         .then(posts=>{
             res.json(posts)
+            
         })
         
         .catch(err=>{
@@ -45,6 +47,16 @@ router.post('/findvotes', requireLogin, (req, res)=>{
                 console.log(err)
             })
 })
+//find spcific votes for user
+router.get('/finduservotes', requireLogin, (req, res)=>{
+    Votes.find({user: req.user}, {image_id: 1, _id:0})
+            .then(result=>{
+                console.log("vote image : " + JSON.stringify(result))
+                res.json(result)})
+            .catch(err=>{
+                console.log(err)
+            })
+})
 
 //stores votes
 router.post('/storevote',  requireLogin, (req, res)=>{
@@ -66,8 +78,6 @@ router.post('/storevote',  requireLogin, (req, res)=>{
 
 router.post('/updateafter', requireLogin, async(req, res)=>{
 
-    //check if vote is majority
-    //get all instances of votes for image 
     var voteTotal = 0;
     var voteCounts = new Array();
     var pastVotes = new Array();
@@ -75,8 +85,6 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
     var maxCount = 0;
     var maxVoteID;
     var userscore = req.user.score;
-
-    //console.log("Request body: " + JSON.stringify(req.body))
 
     await Votes.find({image_id: req.body.image})
             .then(result=>{
@@ -119,21 +127,39 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                     }
                     
                 }
-                //console.log(pastVotes)
-                //console.log(voteCounts);
-                //update voteresults collection
-                const voteupdate = new VoteResults({
-                    picID: req.body.image, 
-                    maxVote: maxCount,
-                    voteResult: maxVoteID
-                })
-                voteupdate.save().then(result =>{
-                    res.json({update: result})
+                
+                Predictions.find({picture: req.body.image}, {mush_type: 1}) //finds mush_type where imageID is from vote
+                .then(pred=>{
+                    prediction = pred[0].mush_type;
+                    console.log(prediction)
+                    //check if vote is prediction
+                    if(req.body.vote == prediction){
+                        console.log("TRUE")
+                        
+                        //update score 
+                        userscore = userscore + 1;
+                    }
+                    else{
+                        console.log("FALSE")
+                    }
+                }).then(function(){
+                    console.log( "Pred 2: " +prediction)
+                        const voteupdate = new VoteResults({
+                        picID: req.body.image, 
+                        maxVote: maxCount,
+                        voteResult: maxVoteID,
+                        prediction: prediction
+                    })
+                    voteupdate.save().then(result =>{
+                        res.json({update: result})
+                    })
+                    .catch(err=>{
+                        console.log(err)
+                    })
                 })
                 .catch(err=>{
                     console.log(err)
                 })
-                //console.log("Max count: " + maxCount + " Max vote: " + JSON.stringify(maxVoteID))
                 
             })
             .catch(err=>{
@@ -169,24 +195,6 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                 .catch(error=>{
                     console.log(error)
                 })
-
-
-    await Predictions.find({picture: req.body.image}, {mush_type: 1}) //finds mush_type where imageID is from vote
-        .then(pred=>{
-            //console.log(JSON.stringify(pred))
-            //check if vote is prediction
-            if(req.body.vote == pred[0].mush_type){
-                console.log("TRUE")
-                //update score 
-                userscore = userscore + 1;
-            }
-            else{
-                console.log("FALSE")
-            }
-        })
-        .catch(err=>{
-            console.log(err)
-        })
 
     await User.updateOne(
         {_id: req.user._id},
@@ -269,6 +277,25 @@ router.get('/userscore', requireLogin, (req, res)=>{
             console.log(err)
         })
 })
+
+//returns voting results
+router.get('/voteresults', requireLogin, (req, res)=>{
+    VoteResults.find()
+        .populate('voteResult')
+        .populate('picID')
+        .populate('prediction')
+    
+        .then(posts=>{
+            res.json(posts)
+            console.log(posts)
+        })
+        
+        .catch(err=>{
+                console.log(err)
+        })
+})
+
+
 
 
 module.exports = router
