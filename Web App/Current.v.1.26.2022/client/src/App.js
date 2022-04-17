@@ -9,6 +9,7 @@ import Signup from './components/screens/Signup'
 import CreatePost from './components/screens/CreatePost'
 import AboutUs from './components/screens/AboutUs'
 import VoteResults from './components/screens/VoteResults'
+import HomeOfficial from './components/screens/HomeOfficial'
 import {reducer, initialState} from './reducers/userReducer'
 
 export const UserContext = createContext()
@@ -21,16 +22,16 @@ const Routing = () =>{
     const user = JSON.parse(localStorage.getItem("user"))   
     if(user){
       dispatch({type: "USER", payload: user})
-      //navigate('/')
     }
     else{
-      navigate('/login')
+      navigate('/')
     }
   }, [])
 
   return(
     <Routes>
-        <Route path = '/' element = {<Home/>}/>
+        <Route path = '/' element = {<HomeOfficial/>}/>
+        <Route path = '/vote' element = {<Home/>}/>
         <Route path = '/login' element = {<Login/>}/>
         <Route path = '/signup' element = {<Signup/>}/>
         <Route path = '/myuploads' element = {<Profile/>}/>

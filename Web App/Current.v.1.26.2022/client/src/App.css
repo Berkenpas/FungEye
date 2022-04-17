@@ -7,8 +7,20 @@ a{
     color: rgb(112, 87, 87);
 }
 
-.brand-logo, h2, h4{
+.brand-logo, h1{
     font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+.navbar{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px
+}
+.other-titles{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 50px
+}
+.card-content{
+    font-family: 'Comfortaa', cursive;
 }
 
 .page-head{
@@ -67,4 +79,26 @@ a{
     height: 155px;
     overflow: auto;
     text-align:justify;
+    font-family: 'Comfortaa', cursive;
+}
+
+.homepage-bimage {
+    background-image: url("mush3.jpg");
+    height: 95vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.home-position{
+    position: fixed;
+    right: 10px;
+    top: 150px;
+}
+
+.every-background{
+    background-image: url("mush3.jpg");
+    height: 95vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

@@ -23,6 +23,12 @@ const useStyles = makeStyles({
     media: {
       height: 200,
     },
+    content:{
+      fontFamily: [
+        'Comfortaa',
+        'cursive'
+      ].join(','),
+    },
   });
 
   const theme = createTheme({
@@ -30,6 +36,14 @@ const useStyles = makeStyles({
       fontFamily: [
         'Quicksand',
         'sans-serif'
+      ].join(','),
+    }
+  });
+  const theme2 = createTheme({
+    typography: {
+      fontFamily: [
+        'Comfortaa',
+        'cursive'
       ].join(','),
     }
   });
@@ -69,7 +83,7 @@ const Profile = ()=>{
     const classes = useStyles();
 
     return (
-        <div>
+        <div className = 'every-background'>
           <Container>
             <ThemeProvider theme={theme}>
             <div style = {{borderBottom: "1px solid grey" }}>
@@ -94,28 +108,34 @@ const Profile = ()=>{
             <Grid container spacing={3}>
               {mypics.map(elem => (
                 <Grid item xs={12} sm={4} >
+                  
                   <Card className={classes.card}>
                     <CardMedia
                        className={classes.media}
                       image={elem.image}
                     />
+                    <ThemeProvider theme = {theme2}>
+                    <div>
                     {elem.voted  
-                    ? <CardContent>
+                    ? <CardContent >
                         <Typography gutterBottom variant = "h5" component = "div">
                             {elem.mushID.common}
                         </Typography>
-                        <Typography gutterBottom variant = "h7" component = "div">
+                        <Typography gutterBottom variant = "h6" component = "div" >
                             {elem.mushID.latin}
                         </Typography>
-                        <Typography  varient = "body2" color="text.secondary">
+                        <Typography  varient = "body2" color="text.secondary" >
                             Information about the mushroom: <a href= {elem.mushID.wiki}>Wikipedia</a>
                         </Typography>
                     </CardContent>
                     : <CardContent>
-                    <Typography gutterBottom variant = "h5" component = "div">
-                        Currently being voted.
+                    <Typography gutterBottom variant = "h5" component = "div" >
+                        Voting in progress!
                     </Typography>
-                </CardContent>}
+                    <Typography gutterBottom variant = "h6" component = "div" >
+                        Come back in 24 hours. 
+                    </Typography>
+                </CardContent>}</div></ThemeProvider>
                   </Card>
                 </Grid>
               ))}

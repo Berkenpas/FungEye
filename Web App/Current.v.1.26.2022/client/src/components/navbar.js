@@ -19,19 +19,19 @@ const NavBar = ()=>{
         if(state){
             
             return [
-                <div>
+                <div >
                     {/*<ul id='dropdown1' class='dropdown-content'>*/}
-                        <li><Link to={state?"/":"/login"}>Vote</Link></li>
-                        <li><Link to="/voteresults">Vote Results</Link></li>
-                        <li><Link to="/uploadimage">Upload Photo</Link></li>
-                        <li><Link to="/myuploads">My Uploads</Link></li>
-                        <li><Link to="/aboutus">About Us</Link></li>
+                        <li><Link to={state?"/vote":"/login" } className= 'navbar'>Vote</Link></li>
+                        <li><Link to="/voteresults" className= 'navbar'>Vote Results</Link></li>
+                        <li><Link to="/uploadimage" className= 'navbar'>Upload Photo</Link></li>
+                        <li><Link to="/myuploads" className= 'navbar'>My Uploads</Link></li>
+                        <li><Link to="/aboutus" className= 'navbar'>About Us</Link></li>
                         <li class="divider"></li>
                         <li><a onClick={()=>{
                                 localStorage.clear()
                                 dispatch({type: "CLEAR"})
                                 navigate('/login')
-                        }}>Logout</a>
+                        }} className= 'navbar'>Logout</a>
                         </li>
                     {/*</ul>*/}
                     

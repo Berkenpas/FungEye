@@ -187,11 +187,20 @@ const Home = ()=>{
         return included;
     }
 
+    const theme2 = createTheme({
+        typography: {
+          fontFamily: [
+            'Comfortaa',
+            'cursive'
+          ].join(','),
+        }
+      });
+
 
     
     return(
 
-        <div > 
+        <div className = 'every-background'> 
             <Container>
             <ThemeProvider theme={theme1}>
             <div style = {{borderBottom: "1px solid grey" }}>
@@ -215,6 +224,8 @@ const Home = ()=>{
                     {
                         data.map(item =>(
                             <Grid item xs={12} sm ={4}>
+                                <ThemeProvider theme = {theme2}>
+                                <div>
                                 <Card className={classes.card}>
                                     <CardMedia
                                     className={classes.media}
@@ -254,7 +265,7 @@ const Home = ()=>{
                                             Thank you for voting!
                                         </Typography>
                                     </CardContent>}
-                                </Card>
+                                </Card></div></ThemeProvider>
                             </Grid>
                         ))
                     }

@@ -33,6 +33,23 @@ const useStyles = makeStyles({
       ].join(','),
     }
   });
+  const theme2 = createTheme({
+    typography: {
+      fontFamily: [
+        'Comfortaa',
+        'cursive'
+      ].join(','),
+    }
+  });
+  const theme3 = createTheme({
+   typography:{
+     fontSize: 12,
+     fontFamily: [
+      'Comfortaa',
+      'cursive'
+    ].join(','),
+   },
+  });
 
 
 const VoteResults = ()=>{
@@ -54,7 +71,7 @@ const VoteResults = ()=>{
     const classes = useStyles();
 
     return (
-        <div>
+        <div className = 'every-background'>
           <Container>
             <ThemeProvider theme={theme}>
             <div style = {{borderBottom: "1px solid grey" }}>
@@ -64,7 +81,6 @@ const VoteResults = ()=>{
               variant="h4"
               align="center"
             >
-                <p></p>
               Recent results from image classification voting:
             </Typography>
             </div>
@@ -74,26 +90,31 @@ const VoteResults = ()=>{
                 <Grid container spacing = {3}>
                 {data.map(elem => (
                 <Grid item xs={12} sm={4} >
+                  <ThemeProvider theme = {theme2}>
+                  <div>
+                  
                   <Card className={classes.card}>
                     <CardMedia
                        className={classes.media}
                       image={elem.picID.image}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant = "h6" component = "div">
-                            Final Result: {elem.voteResult.latin}
+                        <Typography gutterBottom variant = "h5" component = "div">
+                            Final Result: <br></br>{elem.voteResult.latin}
                         </Typography>
-                        <Typography gutterBottom variant = "h7" component = "div">
+                        <Typography gutterBottom variant = "h6" component = "div">
                             {elem.voteResult.common}
                         </Typography>
-                        <Typography gutterBottom variant = "h7" component = "div">
+                        <ThemeProvider theme = {theme3}>
+                        <Typography gutterBottom variant = "h6" component = "div">
                             Prediction: {elem.prediction.latin}
                         </Typography>
+                        </ThemeProvider>
                         <Typography  varient = "body2" color="text.secondary">
                             Total Votes: {elem.maxVote}
                         </Typography>
                     </CardContent>
-                  </Card>
+                  </Card></div></ThemeProvider>
                 </Grid>
               ))}
                 </Grid>

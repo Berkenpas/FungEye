@@ -63,7 +63,7 @@ const CreatePost = ()=>{
         }}>
             
             <div className="file-field input-field">
-                <h2>Upload An Image</h2>
+                <h2 className = 'other-titles'>Upload An Image</h2>
                 <body>
                     RULES OF SUBMISSION
 
