@@ -1,6 +1,5 @@
 from db_runner import dbRunner
 from time import sleep
-from tqdm import tqdm
 from collections import namedtuple
 from typing import List
 import os
@@ -12,15 +11,14 @@ MODEL_NAME = 'ThreeClass'
 
 Task = namedtuple('Task', ['func', 'params', 'msg'])
 
-
 def main(runner: dbRunner, tasks: List[Task]):
-    starting = lambda message: print(f"STARTING TASK: {message}")
+    starting = lambda message: print(f"START: {message}")
     success = lambda message: print(f"SUCCESS: {message}")
     error = lambda message: print(f"ERROR: {message}")
     while(True):
         for t in tasks:
             starting(t.msg)
-            while not t.func() if t.params == [] else t.func(t.params): # TODO Fix parameter passing
+            while not (t.func() if t.params == [] else t.func(*t.params)):
                 error(t.msg)
                 sleep(5)
             success(t.msg)
@@ -37,6 +35,7 @@ if __name__ == "__main__":
         Task(func=runner.db_connected, params=[], msg="MongoDB Connection"),
         Task(func=runner.download_new_posts, params=[DOWNLOAD_PATH], msg="Download New MongoDB Posts"),
         Task(func=runner.predict_all_staged, params=[DOWNLOAD_PATH, PREDICTED_PATH], msg="Predict all staged"),
+        Task(func=runner.remove_all_staged, params=[DOWNLOAD_PATH], msg="Delete all staged files"),
         Task(func=runner.upload_predicted, params=[], msg="Upload Predicted"),
         Task(func=runner.update_newly_predicted, params=[], msg="Update post(s) to reflect prediction"),
         Task(func=runner.store_predicted_local, params=[COMPLETED_PATH], msg="Store all newly predicted posts to model db")

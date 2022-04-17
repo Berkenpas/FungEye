@@ -23,9 +23,17 @@ class dbRunner:
                 shutil.copyfileobj(r.raw, f)
 
     def download_new_posts(self, dl_path:str):
+        '''
+        TODO DOCS
+        true if downloaded posts
+        false if failed
+        '''
         posts = self.connection.get_new_posts()
+        pic_f_names = set([str(p['_id']) + '.jpg' for p in posts])
         for p in posts:
             self._download_picture(dl_path, str(p['_id']) + ".jpg", p['image'])
+        return pic_f_names.issubset(os.listdir(dl_path))
+        
     
     def db_connected(self):
         '''
@@ -35,16 +43,41 @@ class dbRunner:
         return self.connection.connected()
 
     def predict_all_staged(self, in_path:str, out_path:str):
-        self.model.predict_all(in_path, out_path)
+        '''
+        True if predictions made for all posts
+        False if failed
+        '''
+        files = set(os.listdir(in_path))
+        predictions = self.model.predict_all(in_path, out_path)
+        if files.issubset(set(os.listdir(out_path))):
+            return True
+        return False
+
+    def remove_all_staged(self, path:str):
+        '''
+        TODO DOCS
+        '''
+        for f in os.listdir(path):
+            os.remove(os.path.join(path, f))
+        return True if len(os.listdir(path)) == 0 else False
 
     def upload_predicted(self):
-        pass
+        '''
+        TODO Implement
+        '''
+        return False
 
     def update_newly_predicted(self):
-        pass
+        '''
+        TODO Implement
+        '''
+        return False
 
     def store_predicted_local(self):
-        pass
+        '''
+        TODO Implement
+        '''
+        return False
 
 if __name__ == "__main__":
     # Connection and Database Parameters
