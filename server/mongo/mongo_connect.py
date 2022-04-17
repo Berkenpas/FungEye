@@ -52,9 +52,9 @@ class FungEyeConnector(MongoConnector):
         # Check for pre-existing prediction
         if len(list(self.find_prediction(pic_id = pic_id))) < 1:
             self._db['predictions'].insert_one( { "picture" : ObjectId(pic_id) , "mush_type" : ObjectId(m_type), "confidence" : confidence } )
-            print("New prediction added")
+            print(f"DATABASE: Prediction added : {pic_id}")
         else:
-            print("Prediction exists, overwriting")
+            print(f"DATABASE: Prediction overwritten : {pic_id}")
             self._db['predictions'].update_one( { "picture" : ObjectId(pic_id) } , { "$set" : { "mush_type" : ObjectId(m_type), "confidence" : confidence } } )
 
     def remove_prediction(self, pic_id:str="", pred_id:str=""):
@@ -78,8 +78,29 @@ class FungEyeConnector(MongoConnector):
             return [e for e in self._db['predictions'].find( { "picture" : ObjectId(pic_id) } )]
         return []
     
+    def all_predictions(self) -> List:
+        return [p for p in self._db['predictions'].find({})]
+
     def get_new_posts(self) -> List:
         '''
-        Grab all posts that have "voted" attribute as false
+        Grab all posts that do not have mushID field
         '''
-        return [p for p in self._db['posts'].find( { "voted" : False } )]
+        # OLD -> return [p for p in self._db['posts'].find( { "voted" : False } )]
+        return [p for p in self._db['posts'].find({ "mushID" : { "$exists": False } })]
+    
+    def no_predictions(self) -> List:
+        '''
+        Return all posts that do not have a prediction in the database
+        TODO DOCS
+        '''
+        new_posts_ids = self.get_new_posts()
+        prediction_ids = set([p['picture'] for p in self.all_predictions()])
+        no_predictions = [np for np in new_posts_ids if np['_id'] not in prediction_ids]
+        return no_predictions
+
+    def mush_id(self, latin:str) -> ObjectId:
+        return self._db['mushrooms'].find_one( { 'latin' : latin } )['_id']
+    
+    def update_post_mushID(self, post_id:str, m_type:str):
+        self._db['posts'].update_one( { "_id" : ObjectId(post_id) } , { "$set" : { "mushID" : ObjectId(m_type) } } )
+

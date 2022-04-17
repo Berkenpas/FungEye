@@ -23,11 +23,13 @@ class FEModelConnector():
     def predict_all(self, path:str, out_path:str):
         '''
         TODO DOCS
+        Returns Dictionary
+        KEY = file
+        VALUE = array of detections
         '''
-        all = []
+        all = dict()
         for f in os.listdir(path):
-            d = self.predict(os.path.abspath(os.path.join(path,f)), os.path.abspath(os.path.join(out_path,f)))
-            all.append(d)
+            all[f] = self.predict(os.path.abspath(os.path.join(path,f)), os.path.abspath(os.path.join(out_path,f)))
         return all
 
 #pip install deepstack-sdk --upgrade
