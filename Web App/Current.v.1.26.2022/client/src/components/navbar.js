@@ -46,8 +46,8 @@ const NavBar = ()=>{
         else{
             return [
             <li><Link to="/login" className= 'navbar'>Login</Link></li>,
-            <li><Link to="/signup" className= 'navbar'>Sign Up</Link></li>
-            
+            <li><Link to="/signup" className= 'navbar'>Sign Up</Link></li>,
+            <li><Link to="/aboutus" className= 'navbar'>About Us</Link></li>
             ]
         }
     }
