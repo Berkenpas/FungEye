@@ -34,7 +34,7 @@ const Signup = ()=>{
     }
 
     return(
-        <div className = "myCar">
+        <div className = "myCard">
             <div className="card auth-card">
                 <h2>Sign Up</h2>
                 <input

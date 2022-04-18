@@ -1,0 +1,32 @@
+.profile {
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: black;
+    width: 250px;
+    margin: 25px 25px 10px 10px;
+}
+
+.info {
+    float: left;
+    width: 25%; /* three boxes (use 25% for four, and 50% for two, etc) */
+    padding: 25px; /* if you want space between the images */
+    font-family: 'Comfortaa', cursive;
+
+  }
+.name{
+    font-size: 30px;
+    text-align: center;
+}
+.about{
+    font-size: 20px;
+}
+.subtitles{
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;
+    text-align: left;
+}
+.paragraph{
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    text-align: center;
+}

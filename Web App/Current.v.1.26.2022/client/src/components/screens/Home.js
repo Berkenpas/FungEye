@@ -200,7 +200,7 @@ const Home = ()=>{
     
     return(
 
-        <div className = 'every-background'> 
+        <div> 
             <Container>
             <ThemeProvider theme={theme1}>
             <div style = {{borderBottom: "1px solid grey" }}>
@@ -209,8 +209,7 @@ const Home = ()=>{
               gutterBottom
               variant="h4"
               align="center"
-            >
-                <p></p>
+            ><p></p>
               Unidentified Mushrooms
             </Typography>
             <Typography gutterBottom variant = "h5" component = "div" align = "center">

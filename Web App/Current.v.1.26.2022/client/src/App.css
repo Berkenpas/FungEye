@@ -29,6 +29,7 @@ a{
 
 .myCard{
     margin-top: 10px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .auth-card{
@@ -91,14 +92,37 @@ a{
 }
 .home-position{
     position: fixed;
-    right: 10px;
+    left: 1350px;
     top: 150px;
+    font-family: 'Comfortaa', cursive;
+    font-size: 50px;
+    overflow-wrap: break-word;
+    color:#faf0e6
+}
+.home2-position{
+    position: fixed;
+    left: 1350px;
+    top: 350px;
+    font-family: 'Comfortaa', cursive;
+    font-size: 30px;
+    overflow-wrap: break-word;
+    color:#faf0e6
+}
+.home-signup-button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: fixed;
+    left: 1350px;
+    top: 350px;
 }
 
-.every-background{
-    background-image: url("mush3.jpg");
-    height: 95vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+body{
+    background:url("mushbkg3.png") left repeat-y,url("mushbkg3.1.png") right repeat-y;
+    background-color:#faf0e6;
 }
