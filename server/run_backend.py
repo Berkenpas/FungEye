@@ -9,12 +9,13 @@ CONNECTION_LINK = 'mongodb+srv://test:test@cluster0.ra83u.mongodb.net/InstaClone
 DATABASE = 'InstaClone'
 MODEL_DIR = os.path.abspath('./model/model_files/')
 MODEL_NAME = 'ThreeClass'
+LOOP_PAUSE = 10
 
 Task = namedtuple('Task', ['func', 'params', 'msg'])
 
 curtime = lambda: str(datetime.now().strftime("%m-%d-%y %H:%M"))
 
-def main(runner: dbRunner, tasks: List[Task]):
+def main(tasks: List[Task]):
     starting = lambda message: print(curtime().ljust(15) + "STARTING:".ljust(9) + f"{message}".ljust(40))
     success = lambda message: print(curtime().ljust(15) + "SUCCESS:".ljust(9) + f"{message}".ljust(40))
     error = lambda message: print(curtime().ljust(15) + "ERROR:".ljust(9) + f"{message}".ljust(40))
@@ -26,7 +27,7 @@ def main(runner: dbRunner, tasks: List[Task]):
                 error(t.msg)
                 sleep(5)
             success(t.msg)
-        sleep(10)
+        sleep(LOOP_PAUSE)
 
 if __name__ == "__main__":
     DOWNLOAD_PATH = os.path.abspath('./data/staged') # Newly downloaded post files
@@ -43,4 +44,4 @@ if __name__ == "__main__":
         Task(func=runner.upload_predicted, params=[], msg="Upload Predicted"),
     ]
     
-    main(runner, tasks)
+    main(tasks)
