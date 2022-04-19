@@ -287,7 +287,6 @@ router.get('/voteresults', requireLogin, (req, res)=>{
     
         .then(posts=>{
             res.json(posts)
-            console.log(posts)
         })
         
         .catch(err=>{

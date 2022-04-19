@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import M from 'materialize-css';
+import "../../App.css";
 import {UserContext} from '../../App'
 
 //TODO force page to reload after login
@@ -44,7 +45,7 @@ const Login = ()=>{
         })
     }
     return(
-        <div className = "myCar">
+        <div className = "myCard">
             <div className="card auth-card">
                 <h2>Login</h2>
                 <input

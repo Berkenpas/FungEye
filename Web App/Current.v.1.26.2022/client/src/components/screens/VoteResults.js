@@ -80,7 +80,10 @@ const VoteResults = ()=>{
               gutterBottom
               variant="h4"
               align="center"
-            >
+            ><p></p>
+              Vote Results
+            </Typography>
+            <Typography gutterBottom variant = "h5" component = "div" align = "center">
               Recent results from image classification voting:
             </Typography>
             </div>

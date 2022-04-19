@@ -64,7 +64,7 @@ const CreatePost = ()=>{
             
             <div className="file-field input-field">
                 <h2 className = 'other-titles'>Upload An Image</h2>
-                <body>
+                <div>
                     RULES OF SUBMISSION
 
                     <p></p>
@@ -73,7 +73,7 @@ const CreatePost = ()=>{
                     the image will not be added to our database. Thank you!
 
                     <p></p>
-                </body>
+                </div>
                 <div className="btn waves-effect waves-light #a1887f brown lighten-2">
                     
                     <span>Upload</span>

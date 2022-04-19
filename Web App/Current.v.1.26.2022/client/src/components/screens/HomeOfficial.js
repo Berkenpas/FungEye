@@ -22,9 +22,13 @@ const HomeOfficial = ()=>{
 
     return(
         <div className='homepage-bimage'>
-            <div className = 'card-content'>
-                Hello
-            </div>
+            
+                <div className = 'home-position'>Effortless mushroom hunting begins here. </div>
+                <br></br>
+                <div className = 'home2-position'>
+                    FungEye provides mushroom identification, image polling, NFT rewards, and community building. Join us today
+                    to add some fun to your foraging endeavours! 
+                </div>
         </div>
     )
 }

@@ -30,7 +30,7 @@ const NavBar = ()=>{
                         <li><a onClick={()=>{
                                 localStorage.clear()
                                 dispatch({type: "CLEAR"})
-                                navigate('/login')
+                                navigate('/')
                         }} className= 'navbar'>Logout</a>
                         </li>
                     {/*</ul>*/}
@@ -45,9 +45,9 @@ const NavBar = ()=>{
         }
         else{
             return [
-            <li><Link to="/login">Login</Link></li>,
-            <li><Link to="/signup">Sign Up</Link></li>
-            
+            <li><Link to="/login" className= 'navbar'>Login</Link></li>,
+            <li><Link to="/signup" className= 'navbar'>Sign Up</Link></li>,
+            <li><Link to="/aboutus" className= 'navbar'>About Us</Link></li>
             ]
         }
     }
@@ -55,7 +55,7 @@ const NavBar = ()=>{
     return(
         <nav>
         <div className="nav-wrapper green" >
-            <Link to= {state?"/":"/login"} className="brand-logo left">FungEye</Link>
+            <Link to= '/' className="brand-logo left">FungEye</Link>
             <ul id="nav-mobile" className="right">
                 {renderList()}
             </ul>
