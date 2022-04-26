@@ -12,6 +12,7 @@ var prediction;
 
 //this router is for the voting system that finds pictures that have not been identified
 router.get('/allpost', requireLogin,(req, res)=>{
+    console.log("/allpost");
     Post.find({voted: false})
         .populate('mushID')
     
@@ -27,6 +28,7 @@ router.get('/allpost', requireLogin,(req, res)=>{
 
 //router for finding all mushrooms within database for voting (+ prediction?)
 router.get('/allmush', requireLogin, (req, res)=>{
+    console.log("/allmush");
     Mushrooms.find({ _id: { $ne: "61e3576650a1d7fbc5f2ac7d" } }) //finds all mushroom species
         .populate('latin')
         .then(musher=>{
@@ -39,6 +41,7 @@ router.get('/allmush', requireLogin, (req, res)=>{
 
 //find totalvotes
 router.post('/findvotes', requireLogin, (req, res)=>{
+    console.log("/findvotes");
     Votes.find({image_id: req.body.image})
             .then(result=>{
                 console.log("TOTAL VOTES : " + result)
@@ -49,6 +52,7 @@ router.post('/findvotes', requireLogin, (req, res)=>{
 })
 //find spcific votes for user
 router.get('/finduservotes', requireLogin, (req, res)=>{
+    console.log("/finduservotes");
     Votes.find({user: req.user}, {image_id: 1, _id:0})
             .then(result=>{
                 console.log("vote image : " + JSON.stringify(result))
@@ -61,6 +65,7 @@ router.get('/finduservotes', requireLogin, (req, res)=>{
 //stores votes
 router.post('/storevote',  requireLogin, (req, res)=>{
     //console.log("Request body: " + JSON.stringify(req.body))
+    console.log("/storevote");
     const newVote = new Votes({
         user: req.user,
         image_id: req.body.image,
@@ -77,7 +82,7 @@ router.post('/storevote',  requireLogin, (req, res)=>{
 
 
 router.post('/updateafter', requireLogin, async(req, res)=>{
-
+    console.log("/updateafter");
     var voteTotal = 0;
     var voteCounts = new Array();
     var pastVotes = new Array();
@@ -131,7 +136,6 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                 Predictions.find({picture: req.body.image}, {mush_type: 1}) //finds mush_type where imageID is from vote
                 .then(pred=>{
                     prediction = pred[0].mush_type;
-                    console.log(prediction)
                     //check if vote is prediction
                     if(req.body.vote == prediction){
                         console.log("TRUE")
@@ -143,7 +147,7 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                         console.log("FALSE")
                     }
                 }).then(function(){
-                    console.log( "Pred 2: " +prediction)
+                    
                         const voteupdate = new VoteResults({
                         picID: req.body.image, 
                         maxVote: maxCount,
@@ -207,6 +211,7 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
 
 
 router.post('/createpost', requireLogin, async (req, res)=>{
+    console.log("/createpost");
     const {pic} = req.body
     if(!pic){
         return res.status(422).json({error: "Please upload an image."})
@@ -214,10 +219,11 @@ router.post('/createpost', requireLogin, async (req, res)=>{
     //continue on video 11 https://www.codersneverquit.in/courses/MERN-stack-Instagram-clone
     req.user.password = undefined;
 
+    console.log("Created post at: " + Date.now())
     const post = new Post({
         image: pic, //this is the picture's url
         postedBy: req.user,
-        date: new Date()
+        date: new Date(Date.now())
     })
 
     //get user's current score and add 2 points
@@ -243,6 +249,7 @@ router.post('/createpost', requireLogin, async (req, res)=>{
 
 //returns all user's posts
 router.get('/mypost', requireLogin, (req, res)=>{
+    console.log("/mypost");
     Post.find({postedBy: req.user._id})
         .populate('postedBy', '_id name')
         .populate('mushID')
@@ -258,6 +265,7 @@ router.get('/mypost', requireLogin, (req, res)=>{
 
 //returns the specific user's votes with specific image
 router.get('/uservotes', requireLogin, (req, res)=>{
+    console.log("/uservotes");
     Votes.find({user: req.user._id, image_id: req.image})
         .then(myvote=>{
             res.json(myvote)
@@ -269,6 +277,7 @@ router.get('/uservotes', requireLogin, (req, res)=>{
 
 //returns the specific user's score
 router.get('/userscore', requireLogin, (req, res)=>{
+    console.log("/userscore");
     User.find({_id: req.user._id}, {score: 1})
         .then(myscore=>{
             res.json(myscore[0].score)
@@ -280,6 +289,7 @@ router.get('/userscore', requireLogin, (req, res)=>{
 
 //returns voting results
 router.get('/voteresults', requireLogin, (req, res)=>{
+    console.log("/voteresults");
     VoteResults.find()
         .populate('voteResult')
         .populate('picID')
@@ -292,6 +302,47 @@ router.get('/voteresults', requireLogin, (req, res)=>{
         .catch(err=>{
                 console.log(err)
         })
+})
+
+//returns image time
+router.get('/time', requireLogin, async(req, res)=>{
+    console.log("/time");
+    
+    Post.aggregate(
+        [
+            {$match: {voted:false}},
+          {
+            $project: {
+               milliseconds: { $subtract: ["$date", new Date("1970-01-01T00:00:00")] }
+            }
+          }
+        ]
+    )
+    //Post.find({date:{$gt: new Date(Date.now() - (30 * 1000))}})
+    //24 hours: (24*60*60 * 1000)
+    // 30 seconds: (30 * 1000)
+    /*
+    let date = new Date();
+    console.log(date.getTime())
+    let imagedate = new Date(Date.now()-60*1*1000); //one minute ago
+    console.log(imagedate.getTime())
+    /*
+    Post.find({voted: false})*/
+    .then(posts=>{
+        /*
+        for(let k =0; k < posts.length; k++){
+            var currImTime = posts[k].date.getTime();
+            console.log(currImTime)
+        }*/
+
+        let imagedate = Date.now(); 
+        console.log("Current Time: " + imagedate)
+        res.json(posts)
+        console.log(posts)
+    })
+    .catch(err=>{
+            console.log(err)
+    })
 })
 
 

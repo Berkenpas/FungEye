@@ -55,7 +55,7 @@ const NavBar = ()=>{
     return(
         <nav>
         <div className="nav-wrapper green" >
-            <Link to= '/' className="brand-logo left">FungEye</Link>
+            <Link to= '/' className="brand-logo ">FungEye</Link>
             <ul id="nav-mobile" className="right">
                 {renderList()}
             </ul>

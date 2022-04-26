@@ -41,13 +41,10 @@ const Home = ()=>{
     const [data, setData] = useState([])
     const [mushroomop, setOptions] = useState([])
     const [choice, setChoice] = useState("");
-    const [submit, setSubmit] = useState("");
+    const [time, setTime] = useState("");
+    const [time2, setTime2] = useState("");
     const [voted, setVoted] = useState(localStorage.getItem('after-vote'));
-    const [userVotes, setUserVotes] = useState([]);
-    //const [wait, setWait] = useState();
-    const [total, setTotal] = useState("");
-
-    const initialState = {};
+    const [submit, setSubmit] = useState("");
 
     useEffect(()=>{
         localStorage.setItem('after-vote', voted)
@@ -76,53 +73,49 @@ const Home = ()=>{
         })
     }, [])
 
-   /* useEffect(()=>{
-        fetch('/finduservotes',{
+    useEffect(()=>{
+        fetch('/time',{
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
             }
         }).then(res=>res.json())
         .then(result=>{
-            setUserVotes(result)
-        })
-    }, [])*/
-
-   /* useEffect(()=>{
-        
-            fetch("/findvotes",{
-                method: "post", 
-                headers: {
-                    "Content-Type":"application/json",
-                    "Authorization": "Bearer " + localStorage.getItem("jwt")
-                },
-                body: JSON.stringify({
-                    image: submit
-                })
-            }).then(res=>res.json()).then(result=>{
-                setTotal(result.length)
-            }).catch(err=>{
-                console.log(err)
-            })
-        
-        
-    }, [])*/
-
-    function getVotes(){
-        fetch('/finduservotes',{
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("jwt")
+            var pastDate = new Date(Date.now()-60*1*1000); //one minute ago
+            //
+            var checkTime = Date.now();
+            setTime(Date.now())
+            for(let j = 0; j < result.length; j++){
+                //get current image date
+                //getTime
+                //compare one minute ago with current
+                var currImTime = result[j].milliseconds;
+                var postedDate = currImTime + 28800800 + 60000; //plus 8 hours + one minute
+                setTime2(postedDate)
+                if(checkTime > postedDate){
+               
+                    fetch('/updateafter',{
+                        method: "post",
+                            headers: {
+                                "Content-Type":"application/json",
+                                "Authorization": "Bearer " + localStorage.getItem("jwt")
+                            },
+                            body: JSON.stringify({
+                                image: result[j]._id
+                            })
+                    }).then(res=>res.json())
+                    .catch(err=>{
+                        console.log(err)
+                    })
+                }
+                
             }
-        }).then(res=>res.json("Votes are set!"))
-        .then(voting=>{
-            setUserVotes(prevState =>
-                [...prevState, voting.image_id])
-        }).catch(err=>{
-            console.log(err)
+            
         })
-    }
+    }, [])
 
 
 
+  
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -149,23 +142,7 @@ const Home = ()=>{
                     setVoted(prevState =>
                         [...prevState, submit]
                     )
-                    //clear submit
-
-                    navigate('/');
-                }
-
-                if(true){
-                        fetch('/updateafter',{
-                        method: "post",
-                            headers: {
-                                "Content-Type":"application/json",
-                                "Authorization": "Bearer " + localStorage.getItem("jwt")
-                            },
-                            body: JSON.stringify({
-                                image: submit,
-                                vote: choice
-                            })
-                    }).then(res=>res.json())
+                    navigate('/vote');
                 }
             })
 
@@ -177,15 +154,6 @@ const Home = ()=>{
 
     const classes = useStyles();
 
-    function checkVoted(image, userVoting){
-        var included = false;
-        
-        if(userVoting.includes(image)){
-            included = true;
-        }
-                
-        return included;
-    }
 
     const theme2 = createTheme({
         typography: {
@@ -194,13 +162,15 @@ const Home = ()=>{
             'cursive'
           ].join(','),
         }
-      });
+    });
 
 
     
     return(
+        
 
         <div> 
+            
             <Container>
             <ThemeProvider theme={theme1}>
             <div style = {{borderBottom: "1px solid grey" }}>
@@ -210,7 +180,7 @@ const Home = ()=>{
               variant="h4"
               align="center"
             ><p></p>
-              Unidentified Mushrooms
+              Unidentified Mushrooms {time} + {time2}
             </Typography>
             <Typography gutterBottom variant = "h5" component = "div" align = "center">
                 Help us identify some mushrooms from our database!
@@ -262,6 +232,9 @@ const Home = ()=>{
                                     <CardContent>
                                         <Typography gutterBottom variant = "h5" component = "div">
                                             Thank you for voting!
+                                        </Typography>
+                                        <Typography gutterBottom variant = "h6" component = "div">
+                                            Results will be posted on the Vote Results page.
                                         </Typography>
                                     </CardContent>}
                                 </Card></div></ThemeProvider>

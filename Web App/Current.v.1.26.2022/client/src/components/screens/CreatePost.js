@@ -26,7 +26,7 @@ const CreatePost = ()=>{
                 }
                 else{
                     M.toast({html: "Image Uploaded", classes: "#4caf50 green"})
-                    navigate('/');
+                    navigate('/vote');
                 }
             }).catch(err=>{
                 console.log(err)
