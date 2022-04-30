@@ -106,7 +106,7 @@ const Profile = ()=>{
             </ThemeProvider>
             <p></p>
             <Grid container spacing={3}>
-              {mypics.map(elem => (
+              {mypics?.map(elem => (
                 <Grid item xs={12} sm={4} >
                   
                   <Card className={classes.card}>
@@ -119,13 +119,13 @@ const Profile = ()=>{
                     {elem.voted  
                     ? <CardContent >
                         <Typography gutterBottom variant = "h5" component = "div">
-                            {elem.mushID.common}
+                            {elem.mushID?.common}
                         </Typography>
                         <Typography gutterBottom variant = "h6" component = "div" >
-                            {elem.mushID.latin}
+                            {elem.mushID?.latin}
                         </Typography>
                         <Typography  varient = "body2" color="text.secondary" >
-                            Information about the mushroom: <a href= {elem.mushID.wiki}>Wikipedia</a>
+                            Information about the mushroom: <a href= {elem.mushID?.wiki}>Wikipedia</a>
                         </Typography>
                     </CardContent>
                     : <CardContent>
