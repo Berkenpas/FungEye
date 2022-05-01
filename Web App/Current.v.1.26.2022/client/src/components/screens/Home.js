@@ -180,7 +180,7 @@ const Home = ()=>{
               variant="h4"
               align="center"
             ><p></p>
-              Unidentified Mushrooms {time} + {time2}
+              Unidentified Mushrooms 
             </Typography>
             <Typography gutterBottom variant = "h5" component = "div" align = "center">
                 Help us identify some mushrooms from our database!
