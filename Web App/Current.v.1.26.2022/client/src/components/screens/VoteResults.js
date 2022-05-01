@@ -114,7 +114,7 @@ const VoteResults = ()=>{
                         </Typography>
                         </ThemeProvider>
                         <Typography  varient = "body2" color="text.secondary">
-                            Total Votes: {elem.maxVote}
+                            Total Majority Votes: {elem.maxVote}
                         </Typography>
                     </CardContent>
                   </Card></div></ThemeProvider>
