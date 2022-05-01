@@ -81,7 +81,6 @@ const Home = ()=>{
         }).then(res=>res.json())
         .then(result=>{
             var pastDate = new Date(Date.now()-60*1*1000); //one minute ago
-            //
             var checkTime = Date.now();
             setTime(Date.now())
             for(let j = 0; j < result.length; j++){
@@ -92,7 +91,6 @@ const Home = ()=>{
                 var postedDate = currImTime + 28800800 + 60000; //plus 8 hours + one minute
                 setTime2(postedDate)
                 if(checkTime > postedDate){
-               
                     fetch('/updateafter',{
                         method: "post",
                             headers: {
@@ -167,10 +165,7 @@ const Home = ()=>{
 
     
     return(
-        
-
-        <div> 
-            
+        <div>
             <Container>
             <ThemeProvider theme={theme1}>
             <div style = {{borderBottom: "1px solid grey" }}>
@@ -180,7 +175,7 @@ const Home = ()=>{
               variant="h4"
               align="center"
             ><p></p>
-              Unidentified Mushrooms {time} + {time2}
+              Unidentified Mushrooms
             </Typography>
             <Typography gutterBottom variant = "h5" component = "div" align = "center">
                 Help us identify some mushrooms from our database!
@@ -243,9 +238,7 @@ const Home = ()=>{
                     }
                 </Grid>
             </Container>
-            
         </div>
-
     );
 }
 

@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
     score:{
         type: Number,
         required: true
+    },
+    algo_wallet:{
+        type: String,
+        required: true
     }
 })
 

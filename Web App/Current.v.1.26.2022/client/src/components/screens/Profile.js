@@ -12,6 +12,8 @@ import { makeStyles } from "@mui/styles";
 import '../../App.css'
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
+import M from 'materialize-css';
+import {Link, useNavigate} from 'react-router-dom';
 
 //REFERENCE CODE: https://www.pluralsight.com/guides/styling-a-react-app-with-material-ui
 const useStyles = makeStyles({
@@ -54,6 +56,30 @@ const Profile = ()=>{
     const [mypics, setPics] = useState([])
     const {state, dispatch} = useContext(UserContext)
     const [userscore, setScore] = useState("")
+    const [algo_wallet, setWallet] = useState("")
+    const navigate = useNavigate()
+
+    const UpdateWallet = ()=>{
+      fetch("/updatewallet",{
+          method: "post",
+          headers:
+          {"Content-Type":"application/json", "Authorization": "Bearer " + localStorage.getItem("jwt")},
+          body: JSON.stringify({
+              algo_wallet
+          })
+      }).then(res=>res.json())
+      .then(data =>{
+          if(data.error){
+              M.toast({html: data.error, classes:"#c62828 red darken-3"})
+          }
+          else{
+              M.toast({html: data.message, classes: "#4caf50 green"})
+          }
+      }).catch(err=>{
+          console.log(err)
+      })
+    
+    }
   
 
     useEffect(()=>{
@@ -96,6 +122,18 @@ const Profile = ()=>{
                 <p></p>
               Welcome, {state?state.name: "loading"}! 
             </Typography>
+
+            <input
+                    type = 'algo_wallet'
+                    placeholder = 'Algorand Wallet Address'
+                    value = {algo_wallet}
+                    onChange = {(e)=> setWallet(e.target.value)}//{(state)=> setWallet(state?state.algo_wallet: "loading")}
+            />
+
+            <button className="btn waves-effect waves-light #a1887f brown lighten-2" onClick = {()=> UpdateWallet()}>
+                    Set Wallet Address
+                </button>
+            
             <Typography gutterBottom variant = "h5" component = "div" align = "center">
                 {mypics.length} Uploads
             </Typography>

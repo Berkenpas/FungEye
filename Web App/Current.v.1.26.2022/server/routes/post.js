@@ -258,8 +258,6 @@ router.get('/mypost', requireLogin, (req, res)=>{
         })
         .catch(err=>{
                 console.log(err)
-            
-
         })
 })
 
@@ -343,6 +341,23 @@ router.get('/time', requireLogin, async(req, res)=>{
     .catch(err=>{
             console.log(err)
     })
+})
+
+router.post('/updatewallet', requireLogin, async (req, res)=>{
+    console.log("/updatewallet");
+    const {value} = req.body.algo_wallet;
+    console.log("Request body: " + value);
+    await User.updateOne(
+        {_id: req.user._id},
+        {$set:{
+            algo_wallet: req.body.algo_wallet
+        }}
+    )
+    .catch(err=>{
+        console.log(err)
+    })
+
+    console.log("Updated user wallet: " + Date.now())
 })
 
 

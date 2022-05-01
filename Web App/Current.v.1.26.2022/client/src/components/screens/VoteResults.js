@@ -103,14 +103,17 @@ const VoteResults = ()=>{
                     />
                     <CardContent>
                         <Typography gutterBottom variant = "h5" component = "div">
-                            Final Result: <br></br>{elem.voteResult.latin}
+                            Voting Result:
                         </Typography>
                         <Typography gutterBottom variant = "h6" component = "div">
-                            {elem.voteResult.common}
+                            {elem.voteResult.latin}
+                        </Typography>
+                        <Typography gutterBottom variant = "h6" component = "div">
+                            ({elem.voteResult.common})
                         </Typography>
                         <ThemeProvider theme = {theme3}>
                         <Typography gutterBottom variant = "h6" component = "div">
-                            Prediction: {elem.prediction.latin}
+                            AI Prediction: {elem.prediction.latin}
                         </Typography>
                         </ThemeProvider>
                         <Typography  varient = "body2" color="text.secondary">

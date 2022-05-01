@@ -5,7 +5,7 @@ import '../../App.css'
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import p1 from './m3.gif';
-import p2 from './prof1.gif';
+import p2 from './berk_aboutus.gif';
 import p3 from './prof2.gif';
 import p4 from './prof4.gif';
 import './AboutUs.css'
@@ -81,7 +81,8 @@ const AboutUs = ()=>{
                 Berk
               </div>
               <div className = 'about'>
-                About Berk...
+                Berk is a BS in Computer Science with a minor in Data Science.
+                He enjoys reading, hiking, and foraging when he's not either working or in class.
               </div>
             </div>
             <div className = 'info'>
