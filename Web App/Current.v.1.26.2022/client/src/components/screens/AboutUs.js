@@ -8,6 +8,7 @@ import p1 from './m3.gif';
 import p2 from './berk_aboutus.gif';
 import p3 from './prof2.gif';
 import p4 from './prof4.gif';
+import nft from './nft.gif';
 import './AboutUs.css'
 
 
@@ -49,6 +50,24 @@ const AboutUs = ()=>{
             solution to identifying wild mushrooms and to develop a high quality classified mushroom image dataset.
             </div>
             <p></p>
+
+            <div className = 'subtitles'>
+            Incentivizing Users
+            </div>
+            <div className = 'paragraph'>
+            We incentivize users to contribute and interact with the project by dealing out and sending mushroom based NFT rewards on a weekly basis.
+            Winners are drawn via a lottery system, the higher your score from the last week the better your chances!
+            </div>
+            <Typography
+              color="textPrimary"
+              gutterBottom
+              variant="h3"
+              align="center"
+            >
+            <img src = {nft} alt = "P1" className = 'profile'/>
+            </Typography>
+            <p></p>
+            
             <div className = 'subtitles'>
               Who We Are
             </div>
