@@ -81,12 +81,21 @@ const Profile = ()=>{
     
     }
   
+    useEffect(()=>{
+      fetch('/mywallet',{
+          headers:{
+              "Authorization": "Bearer " + localStorage.getItem("jwt")
+          }
+      }).then(res=>res.json())
+      .then(result=>{
+          setWallet(result)
+      })
+  }, [])
 
     useEffect(()=>{
         fetch('/mypost',{
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
-
             }
         }).then(res=>res.json())
         .then(result=>{
@@ -98,7 +107,6 @@ const Profile = ()=>{
       fetch('/userscore',{
           headers:{
               "Authorization": "Bearer " + localStorage.getItem("jwt")
-
           }
       }).then(res=>res.json())
       .then(result=>{
@@ -123,16 +131,33 @@ const Profile = ()=>{
               Welcome, {state?state.name: "loading"}! 
             </Typography>
 
+            <Typography
+              color="textPrimary"
+              gutterBottom
+              variant="h6"
+              align="center"
+            >
+            
+            Any rewards earned will be send to  the following address:<p></p>
             <input
+                    style={{width: "600px"}}
                     type = 'algo_wallet'
-                    placeholder = 'Algorand Wallet Address'
+                    placeholder = 'Update Wallet Address'
                     value = {algo_wallet}
                     onChange = {(e)=> setWallet(e.target.value)}//{(state)=> setWallet(state?state.algo_wallet: "loading")}
             />
+            </Typography>
 
+            <Typography
+              color="textPrimary"
+              gutterBottom
+              variant="h4"
+              align="center"
+            >
             <button className="btn waves-effect waves-light #a1887f brown lighten-2" onClick = {()=> UpdateWallet()}>
                     Set Wallet Address
                 </button>
+            </Typography>
             
             <Typography gutterBottom variant = "h5" component = "div" align = "center">
                 {mypics.length} Uploads

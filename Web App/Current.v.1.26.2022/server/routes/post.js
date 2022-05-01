@@ -360,6 +360,17 @@ router.post('/updatewallet', requireLogin, async (req, res)=>{
     console.log("Updated user wallet: " + Date.now())
 })
 
+//returns the specific user's wallet
+router.get('/mywallet', requireLogin, (req, res)=>{
+    console.log("/mywallet");
+    User.find({_id: req.user._id})
+        .then(mywallet=>{
+            res.json(mywallet[0].algo_wallet)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+})
 
 
 
