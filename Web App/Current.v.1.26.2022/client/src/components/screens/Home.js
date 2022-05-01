@@ -13,6 +13,7 @@ import {ThemeProvider} from '@mui/material/styles'
 import '../../App.css'
 import {useNavigate} from 'react-router-dom';
 import M from 'materialize-css';
+import mushbike from "./bikemush1.gif";
 
 
 
@@ -175,7 +176,7 @@ const Home = ()=>{
               variant="h4"
               align="center"
             ><p></p>
-              Unidentified Mushrooms
+              Unidentified Mushrooms 
             </Typography>
             <Typography gutterBottom variant = "h5" component = "div" align = "center">
                 Help us identify some mushrooms from our database!
@@ -183,7 +184,7 @@ const Home = ()=>{
             </div>
             </ThemeProvider>
                 <p></p>
-               
+               {!data.length==0 ?
                 <Grid container spacing = {3}>
                     {
                         data.map(item =>(
@@ -236,7 +237,26 @@ const Home = ()=>{
                             </Grid>
                         ))
                     }
-                </Grid>
+                </Grid>:
+                <ThemeProvider theme = {theme2}>
+                    <div className='center'>
+                        <img src= {mushbike} width="290"/>
+                    </div>
+                <div>
+                <Card className="message">
+                        <CardContent>
+                            <Typography gutterBottom variant = "h5" component = "div">
+                                There currently aren't any unidentified images.
+                            </Typography>
+                            <Typography gutterBottom variant = "h6" component = "div">
+                                View results, or <p></p>
+                                <button className="btn waves-effect waves-light #a1887f brown lighten-2" onClick={()=>{navigate('/uploadimage')}}>
+                                    Upload a photo!
+                                </button>
+                            </Typography>
+                        </CardContent>
+                    </Card></div></ThemeProvider>
+            }
             </Container>
         </div>
     );

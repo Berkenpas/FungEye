@@ -7,6 +7,13 @@ a{
     color: rgb(112, 87, 87);
 }
 
+.center{
+    text-align: center;
+}
+.message{
+    text-align: center;
+}
+
 .brand-logo, h1{
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
