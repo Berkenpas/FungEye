@@ -249,7 +249,10 @@ const Home = ()=>{
                                 There currently aren't any unidentified images.
                             </Typography>
                             <Typography gutterBottom variant = "h6" component = "div">
-                                View results, or <p></p>
+                                <button className="btn waves-effect waves-light #a1887f brown lighten-2" onClick={()=>{navigate('/voteresults')}}>
+                                    View results!
+                                </button>
+                                {" "}or{" "}
                                 <button className="btn waves-effect waves-light #a1887f brown lighten-2" onClick={()=>{navigate('/uploadimage')}}>
                                     Upload a photo!
                                 </button>
