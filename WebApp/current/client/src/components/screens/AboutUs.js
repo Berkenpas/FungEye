@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import '../../App.css'
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
-import p1 from './m3.gif';
+import p1 from './vicky.gif';
 import p2 from './berk_aboutus.gif';
 import p3 from './prof2.gif';
 import p4 from './prof4.gif';
