@@ -113,7 +113,10 @@ const VoteResults = ()=>{
                         </Typography>
                         <ThemeProvider theme = {theme3}>
                         <Typography gutterBottom variant = "h6" component = "div">
-                            AI Prediction: {elem.prediction.latin}
+                            AI Prediction: {elem.prediction.latin} 
+                        </Typography>
+                        <Typography gutterBottom variant = "h6" component = "div">
+                            AI Confidence: {elem.conf}%
                         </Typography>
                         </ThemeProvider>
                         <Typography  varient = "body2" color="text.secondary">

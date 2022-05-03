@@ -9,6 +9,7 @@ const Mushrooms = mongoose.model("Mushrooms");
 const Predictions = mongoose.model("Predictions");
 const VoteResults = mongoose.model("VoteResults");
 var prediction;
+var confidence;
 
 //this router is for the voting system that finds pictures that have not been identified
 router.get('/allpost', requireLogin,(req, res)=>{
@@ -80,7 +81,7 @@ router.post('/storevote',  requireLogin, (req, res)=>{
     })
 })
 
-
+//updates after image voting has finished
 router.post('/updateafter', requireLogin, async(req, res)=>{
     console.log("/updateafter");
     var voteTotal = 0;
@@ -91,12 +92,12 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
     var maxVoteID;
     var userscore = req.user.score;
 
+    //find all users in DB
+
+
     await Votes.find({image_id: req.body.image})
             .then(result=>{
-                //console.log("RESULT: " + JSON.stringify(result))
                 voteTotal = result.length;
-                //console.log(voteTotal)
-                //create 2d array
                 function contains(array, object) {
                     var i = array.length;
                     while (i--) {
@@ -111,7 +112,6 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                 for(let i =0; i <= voteTotal-1; i++ ){
                     const currentVote = result[i].vote;
                     if(contains(pastVotes, currentVote)){
-                        //console.log("ALREADY EXISTS")
                         continue;
                     }
                     else{
@@ -133,26 +133,29 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                     
                 }
                 
-                Predictions.find({picture: req.body.image}, {mush_type: 1}) //finds mush_type where imageID is from vote
+                Predictions.find({picture: req.body.image}) //finds mush_type where imageID is from vote
                 .then(pred=>{
-                    prediction = pred[0].mush_type;
-                    //check if vote is prediction
-                    if(req.body.vote == prediction){
-                        console.log("TRUE")
+                        prediction = pred[0].mush_type;
+                        confidence = pred[0].confidence;
                         
-                        //update score 
-                        userscore = userscore + 1;
-                    }
-                    else{
-                        console.log("FALSE")
-                    }
+                        //check if vote is prediction
+                        if(req.body.vote == prediction){
+                            console.log("TRUE")
+                            userscore = userscore + 1;
+                        }
+                        else{
+                            console.log("FALSE")
+                        }
+                    
+                    
                 }).then(function(){
                     
                         const voteupdate = new VoteResults({
                         picID: req.body.image, 
                         maxVote: maxCount,
                         voteResult: maxVoteID,
-                        prediction: prediction
+                        prediction: prediction,
+                        conf: confidence
                     })
                     voteupdate.save().then(result =>{
                         res.json({update: result})
@@ -261,17 +264,6 @@ router.get('/mypost', requireLogin, (req, res)=>{
         })
 })
 
-//returns the specific user's votes with specific image
-router.get('/uservotes', requireLogin, (req, res)=>{
-    console.log("/uservotes");
-    Votes.find({user: req.user._id, image_id: req.image})
-        .then(myvote=>{
-            res.json(myvote)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-})
 
 //returns the specific user's score
 router.get('/userscore', requireLogin, (req, res)=>{
@@ -316,27 +308,9 @@ router.get('/time', requireLogin, async(req, res)=>{
           }
         ]
     )
-    //Post.find({date:{$gt: new Date(Date.now() - (30 * 1000))}})
-    //24 hours: (24*60*60 * 1000)
-    // 30 seconds: (30 * 1000)
-    /*
-    let date = new Date();
-    console.log(date.getTime())
-    let imagedate = new Date(Date.now()-60*1*1000); //one minute ago
-    console.log(imagedate.getTime())
-    /*
-    Post.find({voted: false})*/
     .then(posts=>{
-        /*
-        for(let k =0; k < posts.length; k++){
-            var currImTime = posts[k].date.getTime();
-            console.log(currImTime)
-        }*/
-
         let imagedate = Date.now(); 
-        console.log("Current Time: " + imagedate)
         res.json(posts)
-        console.log(posts)
     })
     .catch(err=>{
             console.log(err)

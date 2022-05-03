@@ -16,6 +16,9 @@ const resultSchema = new mongoose.Schema({
     prediction:{
         type: ObjectId,
         ref: "Mushrooms"
+    },
+    conf:{
+        type: Number
     }
 })
 
