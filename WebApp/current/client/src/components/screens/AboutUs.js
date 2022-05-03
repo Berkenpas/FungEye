@@ -91,8 +91,8 @@ const AboutUs = ()=>{
                 Vicky
               </div>
               <div className = 'about'>
-                Vicky is a BS in Mathematics and a BA in Computer Science. She enjoys drawing 
-                and painting on the days that are not occupied by coding. 
+                Vicky is a BS in Mathematics and a BA in Computer Science. She enjoys drawing and painting, 
+                listening to music, and spending time with family. 
               </div>
             </div>
             <div className = 'info'>
@@ -117,7 +117,8 @@ const AboutUs = ()=>{
                 Rainier
               </div>
               <div className = 'about'>
-                About Rainier...
+              Rainier is a BA in Computer Science and a BBA in Marketing with a minor in Statistics. He enjoys playing soccer, 
+              listening to music, and playing chess in his free time.
               </div>
             </div>
             
