@@ -138,7 +138,7 @@ const Profile = ()=>{
               align="center"
             >
             
-            Any rewards earned will be send to  the following address:<p></p>
+            Any rewards earned will be sent to  the following address:<p></p>
             <input
                     style={{width: "600px"}}
                     type = 'algo_wallet'

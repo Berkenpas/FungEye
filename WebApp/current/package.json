@@ -4,6 +4,7 @@
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.2.8",
     "@mui/styled-engine-sc": "^5.1.0",
+    "nodemon": "^2.0.16",
     "styled-components": "^5.3.3"
   }
 }

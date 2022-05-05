@@ -89,7 +89,7 @@ const Home = ()=>{
                 //getTime
                 //compare one minute ago with current
                 var currImTime = result[j].milliseconds;
-                var postedDate = currImTime + 28800800 + 60000; //plus 8 hours + one minute
+                var postedDate = currImTime + 28800800 + 300000; //plus 8 hours + five minutes
                 setTime2(postedDate)
                 if(checkTime > postedDate){
                     fetch('/updateafter',{
@@ -101,7 +101,9 @@ const Home = ()=>{
                             body: JSON.stringify({
                                 image: result[j]._id
                             })
-                    }).then(res=>res.json())
+                    }).then(res=>{
+                        res.json();
+                    navigate('/vote')})
                     .catch(err=>{
                         console.log(err)
                     })

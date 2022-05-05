@@ -18,6 +18,7 @@ router.get('/allpost', requireLogin,(req, res)=>{
         .populate('mushID')
     
         .then(posts=>{
+            //console.log(posts)
             res.json(posts)
             
         })
@@ -90,9 +91,7 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
     var count = 0; 
     var maxCount = 0;
     var maxVoteID;
-    var userscore = req.user.score;
 
-    //find all users in DB
 
 
     await Votes.find({image_id: req.body.image})
@@ -137,17 +136,7 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                 .then(pred=>{
                         prediction = pred[0].mush_type;
                         confidence = pred[0].confidence;
-                        
-                        //check if vote is prediction
-                        if(req.body.vote == prediction){
-                            console.log("TRUE")
-                            userscore = userscore + 1;
-                        }
-                        else{
-                            console.log("FALSE")
-                        }
-                    
-                    
+                      
                 }).then(function(){
                     
                         const voteupdate = new VoteResults({
@@ -180,35 +169,83 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
             voted: true
         }}
     )
-    //find user's vote for this image and compare to voteresults collection; update score
-    await Votes.find({user: req.user}, {vote: 1})
-                .then(res =>{
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    //find all users in DB
+    await User.find()
+    .then((users)=>{
+
+    
+        users.forEach(user => {
+            let currUser = user;
+            //console.log(user);
+            var userscore = currUser.score;
+            //console.log(userscore);
+            //find user's vote for this image and compare to voteresults collection; update score
+            Votes.find({user: currUser._id, image_id: req.body.image}, {vote: 1})
+            .then(res =>{
+                console.log("Checking vote for " + currUser.name)
+                //console.log(res)
+                if(res.length != 0){
                     let uservote = res[0].vote;
-                    VoteResults.find({voteResult: uservote})
-                        .then(res2=>{
-                            if(res2.length == 1){
-                                console.log("IS MAJORITY")
+                    VoteResults.find({picID: req.body.image}, {voteResult: 1})
+                    .then(res2=>{
+                        console.log("Checking majority for " + currUser.name)
+                        //console.log(res2)
+                        if(uservote.equals(res2[0].voteResult)){
+                            console.log("IS MAJORITY")
+                            userscore = userscore + 1;
+                            //console.log("Score: " + userscore)
+                        }
+                        else{
+                            console.log("NOT MAJORITY")
+                            userscore = userscore + 0.5;
+                            //console.log("Score: " + userscore)
+                        }
+                    })
+                    .then(function(){
+                        Predictions.find({picture: req.body.image}) //finds mush_type where imageID is from vote
+                        .then(pred=>{
+                            prediction = pred[0].mush_type;
+                            confidence = pred[0].confidence;
+                            console.log("Checking prediction for " + currUser.name)
+                            //check if vote is prediction
+                            if(uservote == prediction){
+                                console.log("TRUE")
                                 userscore = userscore + 1;
+                               // console.log("Score: " + userscore)
                             }
                             else{
-                                console.log("NOT MAJORITY")
-                                userscore = userscore + 0.5;
+                                console.log("FALSE")
+                                //console.log("Score: " + userscore)
                             }
                         })
-                        .catch(err=>{
-                            console.log(err);
-                        })
-                })
-                .catch(error=>{
+                    })
+                    .then(function(){
+                        console.log("Updating score for " + currUser.name)
+                        //console.log("Score: " + userscore)
+                        //console.log("User " + currUser)
+                        const user_score = userscore;
+                        User.updateOne(
+                            {_id: currUser._id},
+                            {$set:{score : user_score}},
+                            function (err, result) {
+                                if(err) throw err;
+                                //console.log(result);
+                            }
+                        )
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
+                }
+            })
+            .catch(error=>{
                     console.log(error)
-                })
+             })
 
-    await User.updateOne(
-        {_id: req.user._id},
-        {$set:{
-            score: userscore
-        }}
-    )
+        })
+    })
+    
     
 })
 
@@ -232,6 +269,7 @@ router.post('/createpost', requireLogin, async (req, res)=>{
     //get user's current score and add 2 points
     const userscore = req.user.score + 2;
 
+    console.log(req.user)
     await User.updateOne(
         {_id: req.user._id},
         {$set:{
@@ -287,6 +325,7 @@ router.get('/voteresults', requireLogin, (req, res)=>{
     
         .then(posts=>{
             res.json(posts)
+            //console.log(posts)
         })
         
         .catch(err=>{
