@@ -109,7 +109,8 @@ const AboutUs = ()=>{
                 Cade
               </div>
               <div className = 'about'>
-                About Cade...
+                Cade will be graduating with a BS in Computer Science with minors in Data Science and Mathematics.
+                He enjoys tinkering with Computers and Rowing.
               </div>
             </div>
             <div className = 'info'>
