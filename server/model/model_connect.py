@@ -10,7 +10,7 @@ class FEModelConnector():
         TODO DOCS
         '''
         self.config = ServerConfig("http://localhost:80")
-        self.detector = Detection(config=self.config, name="ThreeClass")
+        self.detector = Detection(config=self.config, name="best")
         self.path = path
 
     def predict(self, in_file_path:str, out_file_path:str):

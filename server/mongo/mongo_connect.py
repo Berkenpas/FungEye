@@ -98,8 +98,26 @@ class FungEyeConnector(MongoConnector):
         no_predictions = [np for np in new_posts_ids if np['_id'] not in prediction_ids]
         return no_predictions
 
-    def mush_id(self, latin:str) -> ObjectId:
-        return self._db['mushrooms'].find_one( { 'latin' : latin } )['_id']
+    '''
+    Finds mushroom ID via database naming schema:
+    AmanitaMuscaria
+    AmanitaPantherina
+    AmanitaPhalloides
+    AmanitaVirosa
+    Conocybe
+    CoprinopsisAtramentaria
+    CortinariusViolaceus
+    GalerinaMarginata
+    GyromitraEsculenta
+    HelvellaVespertina
+    LaetiporusConifericola
+    PanaeolinaFoenisecii
+    PaxillusInvolutus
+    PsilocybeCyanescens
+    TurbinellusFloccosus
+    '''
+    def mush_id(self, mush_db_name:str) -> ObjectId:
+        return self._db['mushrooms'].find_one( { 'db_name' : mush_db_name } )['_id']
     
     def update_post_mushID(self, post_id:str, m_type:str):
         self._db['posts'].update_one( { "_id" : ObjectId(post_id) } , { "$set" : { "mushID" : ObjectId(m_type) } } )

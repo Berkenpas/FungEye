@@ -66,6 +66,7 @@ class dbRunner:
         '''
         TODO DOCS
         '''
+        print(self.last_predictions)
         for k in self.last_predictions.keys():
             post_id = ObjectId(k.split(".")[0])
             mush_id = ObjectId("6254a6b4f7119aeb95641472") # "OTHER" mushroom type by default
@@ -73,8 +74,12 @@ class dbRunner:
 
             # This will need to be changed to accomodate multiple predictions in the same picture (if desired)
             if self.last_predictions[k] != []:
-                mush_id = self.connection.mush_id(self.last_predictions[k][0][0])
-                confidence = self.last_predictions[k][0][1]
+                try:
+                    mush_id = self.connection.mush_id(self.last_predictions[k][0][0])
+                    confidence = self.last_predictions[k][0][1] * 100.0 # Confidence from model is 0.00-1.00 so multiply by 100 for percent confidence
+                except Exception as e:
+                    print(f"Error Updating mush_id and confidence field for latest prediction {post_id} (no mushroom found?)")
+                    print(e)
                 
             self.connection.add_prediction(post_id, mush_id, confidence)
         return True
