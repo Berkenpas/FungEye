@@ -81,7 +81,6 @@ const Home = ()=>{
             }
         }).then(res=>res.json())
         .then(result=>{
-            var pastDate = new Date(Date.now()-60*1*1000); //one minute ago
             var checkTime = Date.now();
             setTime(Date.now())
             for(let j = 0; j < result.length; j++){
@@ -89,7 +88,7 @@ const Home = ()=>{
                 //getTime
                 //compare one minute ago with current
                 var currImTime = result[j].milliseconds;
-                var postedDate = currImTime + 28800800 + 300000; //plus 8 hours + five minutes
+                var postedDate = currImTime + 28800800 + 60000; //plus 8 hours + five minutes
                 setTime2(postedDate)
                 if(checkTime > postedDate){
                     fetch('/updateafter',{

@@ -208,35 +208,41 @@ router.post('/updateafter', requireLogin, async(req, res)=>{
                             prediction = pred[0].mush_type;
                             confidence = pred[0].confidence;
                             console.log("Checking prediction for " + currUser.name)
+                            //console.log(prediction)
+                            //console.log(uservote)
                             //check if vote is prediction
-                            if(uservote == prediction){
+                            if(uservote.equals(prediction)){
                                 console.log("TRUE")
                                 userscore = userscore + 1;
-                               // console.log("Score: " + userscore)
+                                //console.log("Score: " + userscore)
                             }
                             else{
                                 console.log("FALSE")
                                 //console.log("Score: " + userscore)
                             }
                         })
-                    })
-                    .then(function(){
-                        console.log("Updating score for " + currUser.name)
-                        //console.log("Score: " + userscore)
-                        //console.log("User " + currUser)
-                        const user_score = userscore;
-                        User.updateOne(
-                            {_id: currUser._id},
-                            {$set:{score : user_score}},
-                            function (err, result) {
-                                if(err) throw err;
-                                //console.log(result);
-                            }
-                        )
+                        .then(function(){
+                            console.log("Updating score for " + currUser.name)
+                            //console.log("Score: " + userscore)
+                            //console.log("User " + currUser)
+                            const user_score = userscore;
+                            User.updateOne(
+                                {_id: currUser._id},
+                                {$set:{score : user_score}},
+                                function (err, result) {
+                                    if(err) throw err;
+                                    //console.log(result);
+                                }
+                            )
+                        })
+                        .catch(err=>{
+                            console.log(err);
+                        })
                     })
                     .catch(err=>{
                         console.log(err);
                     })
+                    
                 }
             })
             .catch(error=>{

@@ -6,7 +6,7 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import p1 from './vicky.gif';
 import p2 from './berk_aboutus.gif';
-import p3 from './prof2.gif';
+import p3 from './rmush.gif';
 import p4 from './prof4.gif';
 import nft from './nft.gif';
 import './AboutUs.css'
@@ -83,8 +83,8 @@ const AboutUs = ()=>{
             </div>
             <img src = {p1} alt = "P1" className = 'profile'/>
             <img src = {p2} alt = "P1" className = 'profile'/>
-            <img src = {p3} alt = "P1" className = 'profile'/>
             <img src = {p4} alt = "P1" className = 'profile'/>
+            <img src = {p3} alt = "P1" className = 'profile'/>
             <p></p>
             <div className = 'info'>
               <div className = 'name'>
